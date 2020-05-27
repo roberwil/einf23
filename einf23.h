@@ -14,7 +14,6 @@
 #ifndef EINF23_H
 #define EINF23_H
 
-  
 //used library includes
 #include <stdio.h>
 #include <stdlib.h>
