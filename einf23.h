@@ -4,10 +4,8 @@
 * Author: Ribeiro, Roberto W. P.
 * Description: This header handles simple string manipulation
 * hiding "c-noobs", at first, from the complexity of pointers
-* as well as ...
 * It defines a new type built essencially to declare Strings and
 * read them from a terminal tab.
-* Copyright Rober Wil © 2016  
 */
 
 //define the header, if it was not defined
