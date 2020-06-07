@@ -1,0 +1,65 @@
+#ifndef EINF23_H
+#define EINF23_H
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <ctype.h>
+#include <string.h>
+#include <stdarg.h>
+#include "lib/types.h"
+
+typedef struct 
+{
+	String (*string)();
+	String (*password)();
+	
+	int (*integer)();
+    int (*winteger)(String, String);
+	
+	float (*floatn)();
+    float (*wfloatn)(String, String);
+	
+	double (*doublen)();
+    double (*wdoublen)(String, String);
+	
+	char (*character)();
+}Read;
+
+Read build_read ();
+
+String  GetString();
+String  GetPassword();
+
+int GetInt();
+int WGetInt (String text, String warning);
+int IsNan();
+
+float GetFloat();
+float WGetFloat (String text, String warning);
+
+double GetDouble();
+double WGetDouble (String text, String warning);
+
+char GetChar();
+
+#endif
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
