@@ -2,27 +2,24 @@
 #include "read.h"
 #include "string.h"
 
-
-//Global Variables
-
-int     NAN;
-int     TYPE;
+int NAN;
+int TYPE;
 
 Read build_read () {
 	
-	Read read;
+    Read read;
 
-	read.string = GetString;
-	read.password = GetPassword;
-	read.integer = GetInt;
-	read.floatn = GetFloat;
-	read.doublen = GetDouble;
-	read.character = GetChar;
+    read.string = GetString;
+    read.password = GetPassword;
+    read.integer = GetInt;
+    read.floatn = GetFloat;
+    read.doublen = GetDouble;
+    read.character = GetChar;
     read.winteger = WGetInt;
     read.wfloatn = WGetFloat;
     read.wdoublen = WGetDouble;
-    
-	return read;
+        
+    return read;
 
 }
 
