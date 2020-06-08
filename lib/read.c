@@ -1,5 +1,6 @@
  
 #include "read.h"
+#include "string.h"
 
 
 //Global Variables

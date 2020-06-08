@@ -1,12 +1,12 @@
-#ifndef EINF23_H
-#define EINF23_H
+#ifndef READ_H
+#define READ_H
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
 #include <string.h>
 #include <stdarg.h>
-#include "lib/types.h"
+#include "types.h"
 
 typedef struct 
 {

@@ -18,7 +18,7 @@
 #include <ctype.h>
 #include <string.h>
 #include <stdarg.h>
-#include "lib/types.h"
+#include "types.h"
 
 typedef struct
 {
