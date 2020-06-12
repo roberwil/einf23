@@ -40,34 +40,34 @@ Read build_read () {
 
 String GetString(){
 
-	int character, n = 0, size = 1;
-	//at first, it is assumed that user will type nothing
-	//so, it is allocated a string of size 1
-	String temp = (String) calloc(size, sizeof(char));
-	//null-terminates the string
-	*(temp + 0) = END_STRING; 
+    int character, n = 0, size = 1;
+    //at first, it is assumed that user will type nothing
+    //so, it is allocated a string of size 1
+    String temp = (String) calloc(size, sizeof(char));
+    //null-terminates the string
+    *(temp + 0) = END_STRING; 
 
 	//as long as user types something
-	while(TRUE){
+    while(TRUE){
 		
-		//clears the stdin buffer
-		//setbuf(stdin, NULL);
-		//gets the char typed from stdin
-		character = getc(stdin);
-		//if user pressed "Enter" then, terminate reading
-		if (character == ENTER_KEY)
-			return temp;
+        //clears the stdin buffer
+        //setbuf(stdin, NULL);
+        //gets the char typed from stdin
+        character = getc(stdin);
+        //if user pressed "Enter" then, terminate reading
+        if (character == ENTER_KEY)
+            return temp;
 		
-		//append the char read to "temp"
-		*(temp + n) = character;
-		
-		n++; size++;
-		//resize the string so that to house one more char
-		temp = realloc(temp, size*sizeof(char));
-		//null-terminaates "temp"
-		*(temp + (size - 1)) = END_STRING;
+        //append the char read to "temp"
+        *(temp + n) = character;
 
-	}
+        n++; size++;
+        //resize the string so that to house one more char
+        temp = realloc(temp, size*sizeof(char));
+        //null-terminaates "temp"
+        *(temp + (size - 1)) = END_STRING;
+
+    }
 
 }
 
