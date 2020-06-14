@@ -15,7 +15,11 @@ void example1() {
 }
 
 void example2() {
-    i
+    int i;
+
+    for (;range(2, 10, &i);){
+        printf("%d\n", i);
+    }
 }
 
 int main(int argc, char const *argv[])
