@@ -13,6 +13,7 @@
 
 #include "lib/read.h"
 #include "lib/string.h"
+#include "lib/loop.h"
 
 #endif
 

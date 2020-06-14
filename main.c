@@ -2,8 +2,7 @@
 #include <stdlib.h>
 #include "einf23.h"
 
-int main(int argc, char const *argv[])
-{
+void example1() {
     Read read = build_read();
     String str;
     int number;
@@ -12,7 +11,16 @@ int main(int argc, char const *argv[])
     printf("%s\n", str);
 
     number = read.integer();
-    printf("%d\n", number)
+    printf("%d\n", number);
+}
 
+void example2() {
+    i
+}
+
+int main(int argc, char const *argv[])
+{
+    //example1();
+    example2();
     return 0;
 }
