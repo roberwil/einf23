@@ -29,7 +29,7 @@ void example2() {
 
     printf("\n\n");
 
-    while(range(1, 10, &i)) {
+    while(range(0, 10, &i)) {
         printf("%d\n", i);
     }
 
