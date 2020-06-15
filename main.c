@@ -17,9 +17,17 @@ void example1() {
 void example2() {
     int i;
 
-    for (;range(2, 10, &i);){
+    for (;range(-20, 10, &i);){
         printf("%d\n", i);
     }
+    
+    printf("\n\n");
+
+    for (;range(1, 2, &i);){
+        printf("%d\n", i);
+    }
+
+
 }
 
 int main(int argc, char const *argv[])

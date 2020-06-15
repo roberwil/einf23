@@ -1,18 +1,22 @@
 #include "loop.h"
 
 int range(int min, int max, int* counter) {
-    static int start = 0;
-    int step = 1;
+    static int start = 0, step = 1;
     
-    if (start == 0) 
+    if (min < 0) min *= -1;
+    if (max < 0) max *= -1;
+
+    if (start == 0) {
         start += min;
-    else
+        if (min > max) step *= -1;
+    } else
         start += step;
 
     *counter = start;
 
-    if (start == max)
+    if (start == max) {
+        start = 0; step = 1;
         return FALSE;
-    else
+    } else
         return TRUE;
 }
