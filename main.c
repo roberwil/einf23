@@ -23,7 +23,7 @@ void example2() {
     
     printf("\n\n");
 
-    for (;range(1, 2, &i);){
+    for (;range(10, -2, &i);){
         printf("%d\n", i);
     }
 
