@@ -1,5 +1,7 @@
 #include "loop.h"
 
+//TODO: Negative ranges; 
+//TODO: Ranges starting at 0
 int range(int min, int max, int* counter) {
     static int start = 0, step = 1;
     
