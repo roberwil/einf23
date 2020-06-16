@@ -32,7 +32,8 @@ int range_step(int min, int max, int _step, int* counter) {
 
     *counter = start;
 
-    if (start >= max) {
+    if ((step < 0 and start <= max) or (step > 0 and start >= max)) {
+        *counter = 0;
         start = 0; step = 1; is_start = TRUE;
         return FALSE;
     } else

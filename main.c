@@ -41,7 +41,7 @@ void example2() {
     
     printf("\n\n");
 
-    while(range_step(20, 10, 9, &i)) {
+    while(range_step(10, 21, 1, &i)) {
         printf("%d\n", i);
     }
 

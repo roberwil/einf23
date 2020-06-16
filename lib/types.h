@@ -8,6 +8,8 @@
 #define FLOAT      'f'
 #define END_STRING '\0'
 #define nil         NULL
+#define or          ||
+#define and         &&
 #define ERR_NAN    "Invalid number!"
 
 typedef char*  String;
