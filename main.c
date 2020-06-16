@@ -32,6 +32,18 @@ void example2() {
     while(range(0, 10, &i)) {
         printf("%d\n", i);
     }
+    
+    printf("\n\n");
+
+    while(range_step(0, 10, 2, &i)) {
+        printf("%d\n", i);
+    }
+    
+    printf("\n\n");
+
+    while(range_step(20, 10, 9, &i)) {
+        printf("%d\n", i);
+    }
 
 }
 
