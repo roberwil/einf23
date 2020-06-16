@@ -40,6 +40,7 @@ int range_step(int min, int max, int step_value, int* counter) {
 }
 
 int each_int(int* array, int size, int* value) {
+   
     static int pos = 0;
 
     *value = *(array + pos);

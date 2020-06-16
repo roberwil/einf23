@@ -52,10 +52,16 @@ void example2() {
 //loop.h -> Each
 void example3() {
     int array[] = {1, 2, 3, 4, 5};
-    int value;
-    
-    while(each_int(array, 5, &value)){
+    int pos, value, size = 5;
+
+    while(each_int(array, size, &value)){
         printf("%d\n", value);
+    }
+
+    printf("\n\n");
+
+    while(range(0, size, &pos)) {
+        printf("%d\n", array[pos]);
     }
 }
 
