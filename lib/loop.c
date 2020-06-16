@@ -19,13 +19,12 @@ int range(int min, int max, int* counter) {
         return TRUE;
 }
 
-int range_step(int min, int max, int _step, int* counter) {
+int range_step(int min, int max, int step_value, int* counter) {
     static int start = 0, step = 1, is_start = TRUE;
 
     if (is_start) {
-        is_start = FALSE;
-        start += min;
-        step = _step;
+        is_start = FALSE; start += min;
+        step = step_value;
         if (min > max) step *= -1;
     } else
         start += step;
@@ -38,4 +37,20 @@ int range_step(int min, int max, int _step, int* counter) {
         return FALSE;
     } else
         return TRUE;
+}
+
+int each_int(int* array, int size, int* value) {
+    return FALSE;
+}
+
+int each_char(int* array, char* value) {
+    return FALSE;
+}
+
+int each_float(float* array, int size, float* value) {
+    return FALSE;
+}
+
+int each_double(float* array, int size, float* value) {
+    return FALSE;
 }
