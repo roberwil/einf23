@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include "einf23.h"
 
+//Read input
 void example1() {
     Read read = build_read();
     String str;
@@ -14,6 +15,7 @@ void example1() {
     printf("%d\n", number);
 }
 
+//loop.h -> Ranges
 void example2() {
     int i;
 
@@ -47,9 +49,20 @@ void example2() {
 
 }
 
+//loop.h -> Each
+void example3() {
+    int array[] = {1, 2, 3, 4, 5};
+    int value;
+    
+    while(each_int(array, 5, &value)){
+        printf("%d\n", value);
+    }
+}
+
 int main(int argc, char const *argv[])
 {
     //example1();
-    example2();
+    //example2();
+    example3();
     return 0;
 }

@@ -40,7 +40,15 @@ int range_step(int min, int max, int step_value, int* counter) {
 }
 
 int each_int(int* array, int size, int* value) {
-    return FALSE;
+    static int pos = 0;
+
+    *value = *(array + pos);
+    pos += 1;
+
+    if (pos > size)
+        return FALSE;
+    else
+        return TRUE;
 }
 
 int each_char(int* array, char* value) {
