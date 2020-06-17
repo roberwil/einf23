@@ -64,7 +64,7 @@ int each_number(void* array, int size, void* value, NumberClass number_class) {
         return TRUE;
 }
 
-int each_int(void* array, int size, void* value) {
+int each_int(int* array, int size, int* value) {
     return each_number(array, size, value, Integer);
 }
 
