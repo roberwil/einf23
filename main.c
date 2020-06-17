@@ -63,10 +63,16 @@ void example3() {
 
     for(;each_int_with_index(iarray, size, &value, &index);){
         printf("array[%d] = %d\n", index, value);
+    }    
+
+    printf("\n");
+    
+    for(;each_char("Hello, commit!", &c);){
+        printf("%c ", c);
     }
 
-    printf("\n\n");
-    
+    printf("\n");
+
     for(;each_char("Hello, commit!", &c);){
         printf("%c ", c);
     }

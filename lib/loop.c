@@ -107,8 +107,10 @@ int each_char(String array, char* value) {
     *value = *(array + pos);
     pos += 1;
 
-    if (*value equals END_STRING)
+    if (*value equals END_STRING) {
+        pos = 0;
         return FALSE;
+    }
     else
         return TRUE;
 }
