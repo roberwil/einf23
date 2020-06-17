@@ -40,7 +40,6 @@ int range_step(int min, int max, int step_value, int* counter) {
 }
 
 int each_int(int* array, int size, int* value) {
-   
     static int pos = 0;
 
     *value = *(array + pos);
@@ -52,8 +51,16 @@ int each_int(int* array, int size, int* value) {
         return TRUE;
 }
 
-int each_char(int* array, char* value) {
-    return FALSE;
+int each_char(String array, char* value) {
+    static int pos = 0;
+
+    *value = *(array + pos);
+    pos += 1;
+
+    if (*value == END_STRING)
+        return FALSE;
+    else
+        return TRUE;
 }
 
 int each_float(float* array, int size, float* value) {

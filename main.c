@@ -52,16 +52,17 @@ void example2() {
 //loop.h -> Each
 void example3() {
     int array[] = {1, 2, 3, 4, 5};
-    int pos, value, size = 5;
+    int value, size = 5;
+    char c;
 
-    while(each_int(array, size, &value)){
+    for(;each_int(array, size, &value);){
         printf("%d\n", value);
     }
 
     printf("\n\n");
-
-    while(range(0, size, &pos)) {
-        printf("%d\n", array[pos]);
+    
+    for(;each_char("Hello, commit!", &c);){
+        printf("%c\n", c);
     }
 }
 
