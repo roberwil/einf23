@@ -65,15 +65,15 @@ int each_number(void* array, int size, void* value, NumberClass number_class) {
 }
 
 int each_int(void* array, int size, void* value) {
-    static int pos = 0;
+    return each_number(array, size, value, Integer);
+}
 
-    *(int*)value = *((int*)array + pos);
-    pos += 1;
+int each_float(float* array, int size, float* value) {
+    return each_number(array, size, value, Float);
+}
 
-    if (pos > size)
-        return FALSE;
-    else
-        return TRUE;
+int each_double(double* array, int size, double* value) {
+    return each_number(array, size, value, Double);
 }
 
 int each_char(String array, char* value) {
@@ -86,12 +86,4 @@ int each_char(String array, char* value) {
         return FALSE;
     else
         return TRUE;
-}
-
-int each_float(float* array, int size, float* value) {
-    return FALSE;
-}
-
-int each_double(float* array, int size, float* value) {
-    return FALSE;
 }
