@@ -18,5 +18,6 @@ int each_double(double* array, int size, double* value);
 int each_double_with_index(double* array, int size, double* value, int* index);
 
 int each_char(String array, char* value);
+int each_char_with_index(String array, char* value, int* index);
 
 #endif

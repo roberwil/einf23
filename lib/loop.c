@@ -68,6 +68,15 @@ int each_int(int* array, int size, int* value) {
     return each_number(array, size, value, Integer);
 }
 
+int each_int_with_index(int* array, int size, int* value, int* index) {
+    static int i = 0;
+
+    *index = i; i += 1;
+    if (i == size) i = 0;
+
+    return each_number(array, size, value, Integer);
+}
+
 int each_float(float* array, int size, float* value) {
     return each_number(array, size, value, Float);
 }

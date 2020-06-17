@@ -51,12 +51,18 @@ void example2() {
 
 //loop.h -> Each
 void example3() {
-    int array[] = {1, 2, 3, 4, 5};
-    int value, size = 5;
+    int iarray[] = {1, 2, 3, 4, 5};
+    int value, index, size = 5;
     char c;
 
-    for(;each_int(array, size, &value);){
+    for(;each_int(iarray, size, &value);){
         printf("%d ", value);
+    }
+
+    printf("\n\n");
+
+    for(;each_int_with_index(iarray, size, &value, &index);){
+        printf("array[%d] = %d\n", index, value);
     }
 
     printf("\n\n");
