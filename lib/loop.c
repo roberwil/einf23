@@ -114,3 +114,18 @@ int each_char(String array, char* value) {
     else
         return TRUE;
 }
+
+int each_char_with_index(String array, char* value, int* index) {
+    static int pos = 0;
+
+    *value = *(array + pos);
+    *index = pos;
+    pos += 1;
+
+    if (*value equals END_STRING) {
+        pos = 0; *index = 0;
+        return FALSE;
+    }
+    else
+        return TRUE;
+}

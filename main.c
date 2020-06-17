@@ -73,8 +73,8 @@ void example3() {
 
     printf("\n");
 
-    for(;each_char("Hello, commit!", &c);){
-        printf("%c ", c);
+    for(;each_char_with_index("Hello, commit!", &c, &index);){
+        printf("string[%d] = %c\n", index, c);
     }
 }
 
