@@ -64,16 +64,22 @@ int each_number(void* array, int size, void* value, NumberClass number_class) {
         return TRUE;
 }
 
+int each_index(int limit) {
+    static int i = 0;
+    int index;
+
+    index = i; i += 1;
+    if (i == limit) i = 0;
+
+    return index;
+}
+
 int each_int(int* array, int size, int* value) {
     return each_number(array, size, value, Integer);
 }
 
 int each_int_with_index(int* array, int size, int* value, int* index) {
-    static int i = 0;
-
-    *index = i; i += 1;
-    if (i == size) i = 0;
-
+    *index = each_index(size);
     return each_number(array, size, value, Integer);
 }
 
@@ -81,7 +87,17 @@ int each_float(float* array, int size, float* value) {
     return each_number(array, size, value, Float);
 }
 
+int each_float_with_index(float* array, int size, float* value, int* index) {
+    *index = each_index(size);
+    return each_number(array, size, value, Float);
+}
+
 int each_double(double* array, int size, double* value) {
+    return each_number(array, size, value, Double);
+}
+
+int each_double_with_index(double* array, int size, double* value, int* index) {
+    *index = each_index(size);
     return each_number(array, size, value, Double);
 }
 
