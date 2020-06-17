@@ -37,13 +37,13 @@ void example2() {
     
     printf("\n\n");
 
-    while(range_step(0, 10, 2, &i)) {
+    while(range_with_step(0, 10, 2, &i)) {
         printf("%d\n", i);
     }
     
     printf("\n\n");
 
-    while(range_step(10, 21, 1, &i)) {
+    while(range_with_step(10, 21, 1, &i)) {
         printf("%d\n", i);
     }
 
@@ -56,13 +56,13 @@ void example3() {
     char c;
 
     for(;each_int(array, size, &value);){
-        printf("%d\n", value);
+        printf("%d ", value);
     }
 
     printf("\n\n");
     
     for(;each_char("Hello, commit!", &c);){
-        printf("%c\n", c);
+        printf("%c ", c);
     }
 }
 
