@@ -10,7 +10,14 @@
 #define nil         NULL
 #define or          ||
 #define and         &&
+#define equals      ==
 #define ERR_NAN    "Invalid number!"
+
+typedef enum {
+    Integer = 1,
+    Float,
+    Double  
+} NumberClass;
 
 typedef char*  String;
 typedef char** StringArray;

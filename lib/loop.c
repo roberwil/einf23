@@ -12,7 +12,7 @@ int range(int min, int max, int* counter) {
 
     *counter = start;
 
-    if (start == max) {
+    if (start equals max) {
         start = 0; step = 1; is_start = TRUE;
         return FALSE;
     } else
@@ -39,10 +39,35 @@ int range_step(int min, int max, int step_value, int* counter) {
         return TRUE;
 }
 
-int each_int(int* array, int size, int* value) {
+int each_number(void* array, int size, void* value, NumberClass number_class) {
     static int pos = 0;
 
-    *value = *(array + pos);
+    switch (number_class) {
+        case Integer:
+            *(int*)value = *((int*)array + pos);
+            break;
+        case Float:
+            *(float*)value = *((float*)array + pos);
+            break;
+        case Double:
+            *(double*)value = *((double*)array + pos);
+            break;
+    }
+
+    pos += 1;
+
+    if (pos > size) {
+        pos = 0;
+        return FALSE;
+    }
+    else
+        return TRUE;
+}
+
+int each_int(void* array, int size, void* value) {
+    static int pos = 0;
+
+    *(int*)value = *((int*)array + pos);
     pos += 1;
 
     if (pos > size)
@@ -57,7 +82,7 @@ int each_char(String array, char* value) {
     *value = *(array + pos);
     pos += 1;
 
-    if (*value == END_STRING)
+    if (*value equals END_STRING)
         return FALSE;
     else
         return TRUE;
