@@ -1,13 +1,5 @@
 #include "loop.h"
 
-/**
- * Creates a range defined as follows [min; max[
- * The ith value of the range is 
- * @min: the minimum value
- * @max: the maximum value of
- * @counter: each value of the range
- * @return true if the range is in its limits, false if not 
- */ 
 int range(int min, int max, int* counter) {
     static int start = 0, step = 1, is_start = TRUE;
 
@@ -26,7 +18,7 @@ int range(int min, int max, int* counter) {
     } else
         return TRUE;
 }
-
+ 
 int range_with_step(int min, int max, int step_value, int* counter) {
     static int start = 0, step = 1, is_start = TRUE;
 

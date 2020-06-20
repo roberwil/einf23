@@ -5,7 +5,28 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+/**
+ * Creates a range deifned as follows: 
+ * [min; max[, min and max are part of Z
+ * counter(1) = min, counter(n) = counter(n-1) + 1 if min < max
+ * counter(1) = min, counter(n) = counter(n-1) - 1 if min > max
+ * @min: the minimum value
+ * @max: the maximum value
+ * @counter: each value of the range
+ * @return true if the range is in its limits, false if not 
+ */ 
 int range(int min, int max, int* counter);
+/**
+ * Creates a range deifned as follows: 
+ * [min; max[, min and max are part of Z
+ * counter(1) = min, counter(n) = counter(n-1) + step_value if min < max
+ * counter(1) = min, counter(n) = counter(n-1) - step_value if min > max
+ * @min: the minimum value
+ * @max: the maximum value
+ * @step_value: the increment value
+ * @counter: each value of the range
+ * @return true if the range is in its limits, false if not 
+ */
 int range_with_step(int min, int max, int _step, int* counter);
 
 int each_int(int* array, int size, int* value);
