@@ -1,22 +1,7 @@
 #include "loop.h"
 
 int range(int min, int max, int* counter) {
-    static int start = 0, step = 1, is_start = TRUE;
-
-    if (is_start) {
-        is_start = FALSE;
-        start += min;
-        if (min > max) step *= -1;
-    } else
-        start += step;
-
-    *counter = start;
-
-    if (start equals max) {
-        start = 0; step = 1; is_start = TRUE;
-        return FALSE;
-    } else
-        return TRUE;
+    return range_with_step(min, max, 1, counter);
 }
  
 int range_with_step(int min, int max, int step_value, int* counter) {
@@ -32,6 +17,8 @@ int range_with_step(int min, int max, int step_value, int* counter) {
     *counter = start;
 
     if ((step < 0 and start <= max) or (step > 0 and start >= max)) {
+        // static variables maintain their values throughout function calls,
+        // thus it is made a reset of them all
         *counter = 0;
         start = 0; step = 1; is_start = TRUE;
         return FALSE;
@@ -115,7 +102,7 @@ int each_char(String array, char* value) {
         return TRUE;
 }
 
-int each_char_with_index(String array, char* value, int* index) {
+int each_char_with_index(char* array, char* value, int* index) {
     static int pos = 0;
 
     *value = *(array + pos);

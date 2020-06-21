@@ -5,6 +5,12 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+typedef enum {
+    Integer = 1,
+    Float,
+    Double  
+} NumberClass;
+
 /**
  * Creates a range deifned as follows: 
  * [min; max[, min and max are part of Z
