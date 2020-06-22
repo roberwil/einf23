@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+// Types of number
 typedef enum {
     Integer = 1,
     Float,
