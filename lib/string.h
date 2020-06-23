@@ -33,11 +33,10 @@ typedef struct
 	int (*include)(String, String);
 	
     char (*is_of_type)();
-}Str;
+} StrObject;
 
 //Core types
-typedef Str  StrObject;
-StrObject  build_str  ();
+StrObject build_str  ();
 
 StringArray str_split(char, int* , String);
 

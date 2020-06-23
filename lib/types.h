@@ -12,6 +12,7 @@
 #define and         &&
 #define equals      ==
 #define ERR_NAN    "Invalid number!"
+#define Class       typedef struct
 
 typedef char*  String;
 typedef char** StringArray;
