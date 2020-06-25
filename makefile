@@ -11,6 +11,9 @@ all:
 	gcc $(CFLAGS) $(CFILES) 
 	ar $(ARFLAGS) $(LIB_NAME) $(OFILES)
 	make clean
-	
+
+main:
+	gcc *.c ./lib/*.c -o main.out	
+
 clean:
 	rm $(OFILES)

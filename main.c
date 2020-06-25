@@ -11,7 +11,7 @@ void example1() {
     str = read.string();
     printf("%s\n", str);
 
-    number = read.integer();
+    number = read.winteger("$", nil);
     printf("%d\n", number);
 }
 
@@ -80,8 +80,8 @@ void example3() {
 
 int main(int argc, char const *argv[])
 {
-    //example1();
-    example2();
-    example3();
+    example1();
+    //example2();
+    //example3();
     return 0;
 }
