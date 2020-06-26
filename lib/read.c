@@ -157,7 +157,7 @@ int WGetInt (String text, String warning) {
         temp = GetInt();
         if (IsNan()) {
             if (warning != nil)
-                puts(warning);
+                puts("");
             else
                 puts(ERR_NAN);
         }
