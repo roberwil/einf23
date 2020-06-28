@@ -6,16 +6,19 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef uniion {
-
-};
+typedef enum {
+    Int = 1,
+    Float,
+    Double,
+    Char
+} ArrayType;
 
 typedef struct {
     int number;
 } ListItem;
 
 typedef struct node {
-    ListItem item;
+    void* item;
     struct node* previous;
     struct node* next;
 } node;
