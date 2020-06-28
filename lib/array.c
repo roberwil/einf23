@@ -24,30 +24,6 @@ void destroy(List list) {
     init(list);
 }
 
-void print(List list) {
-    if(is_empty(list)) {
-        printf("[]\n");
-        return;
-    }
-
-    Node nd = list->start; 
-    int _len = len(list);
-
-
-    for (int i = 0; i < _len; i++) {
-        if (i == 0)
-            printf("[%d, ", nd->item.number);
-        else if (i == _len - 1)
-            printf("%d]", nd->item.number);
-        else
-            printf("%d, ", nd->item.number);
-
-        nd = nd->next;
-    }
-
-    printf("\n");
-}
-
 int is_empty(List list) {
     // Check whether the list is empty or not
     return list->len == 0 && list->start == nil && list->end == nil;
