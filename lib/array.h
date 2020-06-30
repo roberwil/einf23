@@ -24,6 +24,9 @@ typedef struct {
     _node *start, *end;
 } _array;
 
+typedef _node* Node;
+typedef _array* OArray;
+
 typedef struct {
     void (*init)(OArray array);
     void (*destroy)(OArray array);
@@ -37,9 +40,6 @@ typedef struct {
     int (*shift)(OArray array);
     int (*pop)(OArray array);
 } ArrayClass;
-
-typedef _node* Node;
-typedef _array* OArray;
 
 extern ArrayClass* Array;
 void build_array();
