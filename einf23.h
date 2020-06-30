@@ -14,6 +14,7 @@
 #include "lib/read.h"
 #include "lib/string.h"
 #include "lib/loop.h"
+#include "lib/array.h"
 
 #endif
 
