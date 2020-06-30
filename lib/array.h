@@ -6,10 +6,10 @@
 #include <stdlib.h>
 
 typedef enum {
-    Int = 1,
-    Float,
-    Double,
-    Char
+    ArrayInt = 1,
+    ArrayFloat,
+    ArrayDouble,
+    ArrayChar
 } ArrayType;
 
 typedef struct _node {
@@ -28,7 +28,7 @@ typedef _node* Node;
 typedef _array* OArray;
 
 typedef struct {
-    void (*init)(OArray array);
+    void (*init)(OArray array, ArrayType type);
     void (*destroy)(OArray array);
 
     int (*is_empty)(OArray array);
@@ -41,10 +41,10 @@ typedef struct {
     int (*pop)(OArray array);
 } ArrayClass;
 
-extern ArrayClass* Array;
+ArrayClass* Array;
 void build_array();
 
-void init(OArray array);
+void init(OArray array, ArrayType type);
 void destroy(OArray array);
 
 int is_empty(OArray array);

@@ -11,7 +11,9 @@ void build_array(){
     Array->pop = pop;
 }
 
-void init(OArray array) {
+void init(OArray array, ArrayType type) {
+    // set the array type
+    array->type = type;
     // The head and tail of the array point to nil
     array->start = array->end = nil;
     // The length o f the array is set to 0
@@ -19,20 +21,20 @@ void init(OArray array) {
 }
 
 void destroy(OArray array) {
-    Node nd = array->start, temp;
+    Node node = array->start, temp;
 
     //Loop every node of the array and free one at a time starting from the first one
     for (int i = 0; i < len(array); i++) {
         // Get the next node
-        temp = nd->next;
+        temp = node->next;
         // Free the previous node
-        free(nd);
+        free(node);
         // Set the next node (used in the next iteration)
-        nd = temp;
+        node = temp;
     }
 
     // Initialize the array
-    init(array);
+    init(array, array->type);
 }
 
 int is_empty(OArray array) {
