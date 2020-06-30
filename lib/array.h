@@ -2,7 +2,6 @@
 #define ARRAY_H
 
 #include "types.h"
-
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -25,7 +24,7 @@ typedef struct {
     _node *start, *end;
 } _array;
 
-typedef strcut {
+typedef struct {
     void (*init)(OArray array);
     void (*destroy)(OArray array);
 
@@ -41,6 +40,9 @@ typedef strcut {
 
 typedef _node* Node;
 typedef _array* OArray;
+
+extern ArrayClass* Array;
+void build_array();
 
 void init(OArray array);
 void destroy(OArray array);
