@@ -25,8 +25,22 @@ typedef struct {
     _node *start, *end;
 } _array;
 
-typedef node* Node;
-typedef array* OArray;
+typedef strcut {
+    void (*init)(OArray array);
+    void (*destroy)(OArray array);
+
+    int (*is_empty)(OArray array);
+    int (*len)(OArray array);
+
+    int (*unshift)(OArray array, void* item);
+    int (*push)(OArray array, void* item);
+
+    int (*shift)(OArray array);
+    int (*pop)(OArray array);
+} ArrayClass;
+
+typedef _node* Node;
+typedef _array* OArray;
 
 void init(OArray array);
 void destroy(OArray array);
@@ -34,8 +48,8 @@ void destroy(OArray array);
 int is_empty(OArray array);
 int len(OArray array);
 
-int unshift(OArray array, void* item);
-int push(OArray array, void* item);
+int unshift(OArray array, void* item); //insert at start
+int push(OArray array, void* item); //insert at end
 
 int shift(OArray array); //remover from start
 int pop(OArray array); //remove from the end
