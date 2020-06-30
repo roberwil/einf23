@@ -8,7 +8,7 @@ CFLAGS= -Wall -c
 ARFLAGS= -cvq
 
 all: 
-	gcc $(CFLAGS) $(CFILES) 
+	gcc $(CFLAGS) $(CFILES) einf23.c
 	ar $(ARFLAGS) $(LIB_NAME) $(OFILES)
 	make clean
 
