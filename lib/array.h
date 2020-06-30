@@ -13,37 +13,31 @@ typedef enum {
     Char
 } ArrayType;
 
-typedef struct {
-    int number;
-} ArrayItem;
-
-typedef struct node {
-    ArrayItem item;
-    void* _item;
-    struct node* previous;
-    struct node* next;
-} node;
+typedef struct _node {
+    void* item;
+    struct _node* previous;
+    struct _node* next;
+} _node;
 
 typedef struct {
-    node* start;
-    node* end;
     ArrayType type;
     int len;
-} array;
+    _node *start, *end;
+} _array;
 
 typedef node* Node;
-typedef array* Array;
+typedef array* OArray;
 
-void init(Array array);
-void destroy(Array array);
+void init(OArray array);
+void destroy(OArray array);
 
-int is_empty(Array array);
-int len(Array array);
+int is_empty(OArray array);
+int len(OArray array);
 
-int unshift(Array array, void* item);
-int push(Array array, void* item);
+int unshift(OArray array, void* item);
+int push(OArray array, void* item);
 
-int shift(Array array); //remover from start
-int pop(Array array); //remove from the end
+int shift(OArray array); //remover from start
+int pop(OArray array); //remove from the end
 
 #endif
