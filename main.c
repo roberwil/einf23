@@ -83,7 +83,7 @@ int main(int argc, char const *argv[])
     //example1();
     //example2();
     //example3();
-    OArray numbers;
+    OArray numbers, numbers2;
     Array->init(numbers, ArrayInt);
     return 0;
 }
