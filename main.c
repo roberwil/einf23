@@ -83,7 +83,11 @@ int main(int argc, char const *argv[])
     //example1();
     //example2();
     //example3();
-    OArray numbers, numbers2;
-    Array->init(numbers, ArrayInt);
+
+    OArray numbers;
+    array_init(numbers, ArrayInt);
+    printf("ping");
+    //Array->len(numbers);
+    //printf("%d\n", Array->is_empty(numbers));    
     return 0;
 }

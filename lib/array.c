@@ -1,17 +1,17 @@
 #include "array.h"
 
 void build_array(){
-    Array->init = init;
-    Array->destroy = destroy;
-    Array->is_empty = is_empty;
-    Array->len = len;
-    Array->unshift = unshift;
-    Array->push = push;
-    Array->shift = shift;
-    Array->pop = pop;
+    Array->init = array_init;
+    Array->destroy = array_destroy;
+    Array->is_empty = array_is_empty;
+    Array->len = array_len;
+    Array->unshift = array_unshift;
+    Array->push = array_push;
+    Array->shift = array_shift;
+    Array->pop = array_pop;
 }
 
-void init(OArray array, ArrayType type) {
+void array_init(OArray array, ArrayType type) {
     // set the array type
     array->type = type;
     // The head and tail of the array point to nil
@@ -20,11 +20,11 @@ void init(OArray array, ArrayType type) {
     array->len = 0;
 }
 
-void destroy(OArray array) {
+void array_destroy(OArray array) {
     Node node = array->start, temp;
 
     //Loop every node of the array and free one at a time starting from the first one
-    for (int i = 0; i < len(array); i++) {
+    for (int i = 0; i < array_len(array); i++) {
         // Get the next node
         temp = node->next;
         // Free the previous node
@@ -34,20 +34,20 @@ void destroy(OArray array) {
     }
 
     // Initialize the array
-    init(array, array->type);
+    array_init(array, array->type);
 }
 
-int is_empty(OArray array) {
+int array_is_empty(OArray array) {
     // Check whether the array is empty or not
     return array->len == 0 && array->start == nil && array->end == nil;
 }
 
-int len(OArray array) {
+int array_len(OArray array) {
     // Returns the length of the array
     return array->len;
 }
 
-int unshift(OArray array, void* item) {
+int array_unshift(OArray array, void* item) {
     // Create the node to be inserted
     Node node = (Node)malloc(sizeof(_node));
     // If, somehow, memory is not available
@@ -60,7 +60,7 @@ int unshift(OArray array, void* item) {
     node->previous = nil;
 
     // if the array is empty
-    if (is_empty(array)) {
+    if (array_is_empty(array)) {
         // The head is the tail
         array->end = node;
         // the head and the tail have no next or previous node
@@ -80,7 +80,7 @@ int unshift(OArray array, void* item) {
     return TRUE;
 }
 
-int push(OArray array, void* item) {
+int array_push(OArray array, void* item) {
     // Create the node to be inserted
     Node node = (Node)malloc(sizeof(_node));
     // If, somehow, memory is not available
@@ -91,7 +91,7 @@ int push(OArray array, void* item) {
     // Since it is an insertion at the end, the node has to point to nowhere
     node->next = nil;
 
-    if (is_empty(array)) {
+    if (array_is_empty(array)) {
         // if the array is empty, the head and the tail have to be the same
         array->start = node;
         // There is no previous node to point to
@@ -111,9 +111,9 @@ int push(OArray array, void* item) {
     return TRUE;
 }
 
-int shift(OArray array) {
+int array_shift(OArray array) {
     // If the array is empty, there is nothing to remove
-    if (is_empty(array)) return FALSE;
+    if (array_is_empty(array)) return FALSE;
 
     // Get the first node
     Node first_node = array->start;
@@ -136,9 +136,9 @@ int shift(OArray array) {
     return TRUE;
 }
 
-int pop(OArray array) {
+int array_pop(OArray array) {
     // If the array is empty, there is nothing to remove
-    if (is_empty(array)) return FALSE;
+    if (array_is_empty(array)) return FALSE;
 
     // If the array is of size of 1
     if (array->start == array->end) {

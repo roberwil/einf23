@@ -44,16 +44,16 @@ typedef struct {
 ArrayClass* Array;
 void build_array();
 
-void init(OArray array, ArrayType type);
-void destroy(OArray array);
+void array_init(OArray array, ArrayType type);
+void array_destroy(OArray array);
 
-int is_empty(OArray array);
-int len(OArray array);
+int array_is_empty(OArray array);
+int array_len(OArray array);
 
-int unshift(OArray array, void* item); //insert at start
-int push(OArray array, void* item); //insert at end
+int array_unshift(OArray array, void* item); //insert at start
+int array_push(OArray array, void* item); //insert at end
 
-int shift(OArray array); //remover from start
-int pop(OArray array); //remove from the end
+int array_shift(OArray array); //remover from start
+int array_pop(OArray array); //remove from the end
 
 #endif

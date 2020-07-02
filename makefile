@@ -13,7 +13,9 @@ all:
 	make clean
 
 main:
-	gcc *.c ./lib/*.c -o main.out	
+	gcc *.c ./lib/*.c -o main.out
+	clear
+	./main.out	
 
 clean:
 	rm $(OFILES)
