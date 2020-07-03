@@ -1,165 +1,173 @@
 #include "array.h"
 
-void build_array(){
-    Array->init = array_init;
-    Array->destroy = array_destroy;
-    Array->is_empty = array_is_empty;
-    Array->len = array_len;
-    Array->unshift = array_unshift;
-    Array->push = array_push;
-    Array->shift = array_shift;
-    Array->pop = array_pop;
+void init(List list) {
+    // The head and tail of the list point to nil
+    list->start = list->end = nil;
+    // The length o f the list is set to 0
+    list->len = 0;
 }
 
-void array_init(OArray array, ArrayType type) {
-    // set the array type
-    array->type = type;
-    // The head and tail of the array point to nil
-    array->start = array->end = nil;
-    // The length o f the array is set to 0
-    array->len = 0;
-}
+void destroy(List list) {
+    Node nd = list->start, temp;
 
-void array_destroy(OArray array) {
-    Node node = array->start, temp;
-
-    //Loop every node of the array and free one at a time starting from the first one
-    for (int i = 0; i < array_len(array); i++) {
+    //Loop every node of the list and free one at a time starting from the first one
+    for (int i = 0; i < len(list); i++) {
         // Get the next node
-        temp = node->next;
+        temp = nd->next;
         // Free the previous node
-        free(node);
+        free(nd);
         // Set the next node (used in the next iteration)
-        node = temp;
+        nd = temp;
     }
 
-    // Initialize the array
-    array_init(array, array->type);
+    // Initialize the list
+    init(list);
 }
 
-int array_is_empty(OArray array) {
-    // Check whether the array is empty or not
-    return array->len == 0 && array->start == nil && array->end == nil;
+void print(List list) {
+    if(is_empty(list)) {
+        printf("[]\n");
+        return;
+    }
+
+    Node nd = list->start; 
+    int _len = len(list);
+
+
+    for (int i = 0; i < _len; i++) {
+        if (i == 0)
+            printf("[%d, ", nd->item.number);
+        else if (i == _len - 1)
+            printf("%d]", nd->item.number);
+        else
+            printf("%d, ", nd->item.number);
+
+        nd = nd->next;
+    }
+
+    printf("\n");
 }
 
-int array_len(OArray array) {
-    // Returns the length of the array
-    return array->len;
+int is_empty(List list) {
+    // Check whether the list is empty or not
+    return list->len == 0 && list->start == nil && list->end == nil;
 }
 
-int array_unshift(OArray array, void* item) {
+int len(List list) {
+    // Returns the length of the list
+    return list->len;
+}
+
+int insert_start(List list, ListItem *item) {
     // Create the node to be inserted
-    Node node = (Node)malloc(sizeof(_node));
+    Node nd = (Node)malloc(sizeof(node));
     // If, somehow, memory is not available
-    if (node == nil) return FALSE;
+    if (nd == nil) return FALSE;
 
     // Set the node item
-    //TODO: item is generic now, adapt
-    node->item = item;
+    nd->item = *item;
     // The new head points to no previous node
-    node->previous = nil;
+    nd->previous = nil;
 
-    // if the array is empty
-    if (array_is_empty(array)) {
+    // if the list is empty
+    if (is_empty(list)) {
         // The head is the tail
-        array->end = node;
+        list->end = nd;
         // the head and the tail have no next or previous node
-        node->next = nil;
+        nd->next = nil;
     } else {
         // The new node now points to the old head
-        node->next = array->start;
+        nd->next = list->start;
         // The old head has the new head as the previous node
-        array->start->previous = node;
+        list->start->previous = nd;
     }
 
     // The new node becomes the head
-    array->start = node;
-    // The length of the array increases
-    array->len++;
+    list->start = nd;
+    // The length of the list increases
+    list->len++;
 
     return TRUE;
 }
 
-int array_push(OArray array, void* item) {
+int insert_end(List list, ListItem *item) {
     // Create the node to be inserted
-    Node node = (Node)malloc(sizeof(_node));
+    Node nd = (Node)malloc(sizeof(node));
     // If, somehow, memory is not available
-    if (node == nil) return FALSE;
+    if (nd == nil) return FALSE;
     // Set the node item
-    //TODO: item is generic now, adapt
-    node->item = item;
+    nd->item = *item;
     // Since it is an insertion at the end, the node has to point to nowhere
-    node->next = nil;
+    nd->next = nil;
 
-    if (array_is_empty(array)) {
-        // if the array is empty, the head and the tail have to be the same
-        array->start = node;
+    if (is_empty(list)) {
+        // if the list is empty, the head and the tail have to be the same
+        list->start = nd;
         // There is no previous node to point to
-        node->previous = nil;
+        nd->previous = nil;
     } else {
         // the old tail has as next node the new tail 
-        array->end->next = node;
+        list->end->next = nd;
         // The new tail has as previous node the old tail
-        node->previous = array->end;
+        nd->previous = list->end;
     }
 
     // The new node becomes the tail
-    array->end = node;
-    // The length of the array increases
-    array->len++;
+    list->end = nd;
+    // The length of the list increases
+    list->len++;
 
     return TRUE;
 }
 
-int array_shift(OArray array) {
-    // If the array is empty, there is nothing to remove
-    if (array_is_empty(array)) return FALSE;
+int remove_start(List list) {
+    // If the list is empty, there is nothing to remove
+    if (is_empty(list)) return FALSE;
 
     // Get the first node
-    Node first_node = array->start;
+    Node first_node = list->start;
 
-    if (array->start == array->end)
-        // if array is of length 1, then the head and the tail must point to nowhere
-        array->start = array->end = nil;
+    if (list->start == list->end)
+        // if list is of length 1, then the head and the tail must point to nowhere
+        list->start = list->end = nil;
     else {
         // the node pointed by the old head becomes the head
-        array->start = array->start->next;
+        list->start = list->start->next;
         // the first node has no previous node
-        array->start->previous =  nil;
+        list->start->previous =  nil;
     }
 
     // Free the old head
     free(first_node);
-    // The length of the array decreases
-    array->len--;
+    // The length of the list decreases
+    list->len--;
 
     return TRUE;
 }
 
-int array_pop(OArray array) {
-    // If the array is empty, there is nothing to remove
-    if (array_is_empty(array)) return FALSE;
+int remove_end(List list) {
+    // If the list is empty, there is nothing to remove
+    if (is_empty(list)) return FALSE;
 
-    // If the array is of size of 1
-    if (array->start == array->end) {
+    // If the list is of size of 1
+    if (list->start == list->end) {
         // Free the single node
-        free(array->start);
+        free(list->start);
         // Head an tail point to nowhere
-        array->start = array->end = nil;
+        list->start = list->end = nil;
     } else {
         // Get the last node
-        Node last_node = array->end;
+        Node last_node = list->end;
         // The penultimate node, which is the previous node of the last node, is now the last node 
-        array->end = last_node->previous;
+        list->end = last_node->previous;
         // The new tail has no next node
-        array->end->next = nil;
+        list->end->next = nil;
         // Free the old tail
         free(last_node);
     }
 
-    // The length of the array decreases
-    array->len--;
+    // The length of the list decreases
+    list->len--;
 
     return TRUE;
 }
-

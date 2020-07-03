@@ -1,59 +1,43 @@
 #ifndef ARRAY_H
 #define ARRAY_H
 
-#include "types.h"
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef enum {
-    ArrayInt = 1,
-    ArrayFloat,
-    ArrayDouble,
-    ArrayChar
-} ArrayType;
-
-typedef struct _node {
-    void* item;
-    struct _node* previous;
-    struct _node* next;
-} _node;
+#define FALSE    0
+#define TRUE     1
+#define nil      NULL
 
 typedef struct {
-    ArrayType type;
+    int number;
+} ListItem;
+
+typedef struct node {
+    ListItem item;
+    struct node* previous;
+    struct node* next;
+} node;
+
+typedef struct {
+    node* start;
+    node* end;
     int len;
-    _node *start, *end;
-} _array;
+} list;
 
-typedef _node* Node;
-typedef _array* OArray;
+typedef node* Node;
+typedef list* List;
 
-typedef struct {
-    void (*init)(OArray array, ArrayType type);
-    void (*destroy)(OArray array);
+void init(List list);
+void destroy(List list);
+void print(List list);
 
-    int (*is_empty)(OArray array);
-    int (*len)(OArray array);
+int is_empty(List list);
+int len(List list);
 
-    int (*unshift)(OArray array, void* item);
-    int (*push)(OArray array, void* item);
+int insert_start(List list, ListItem* item);
+int insert_end(List list, ListItem* item);
 
-    int (*shift)(OArray array);
-    int (*pop)(OArray array);
-} ArrayClass;
-
-ArrayClass* Array;
-void build_array();
-
-void array_init(OArray array, ArrayType type);
-void array_destroy(OArray array);
-
-int array_is_empty(OArray array);
-int array_len(OArray array);
-
-int array_unshift(OArray array, void* item); //insert at start
-int array_push(OArray array, void* item); //insert at end
-
-int array_shift(OArray array); //remover from start
-int array_pop(OArray array); //remove from the end
+int remove_start(List list);
+int remove_end(List list);
 
 #endif
