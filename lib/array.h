@@ -13,6 +13,7 @@ typedef enum {
 
 typedef struct array_node {
     void* item;
+    int index;
     struct array_node* previous;
     struct array_node* next;
 } array_node;

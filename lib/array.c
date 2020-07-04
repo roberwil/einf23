@@ -58,7 +58,6 @@ int array_unshift(OArray array, void* item) {
     if (node == nil) return FALSE;
 
     // Set the node item
-    //TODO: item is generic now, adapt
     node->item = item;
     // The new head points to no previous node
     node->previous = nil;

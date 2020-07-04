@@ -14,7 +14,6 @@ all:
 
 main:
 	gcc *.c ./lib/*.c -o main.out
-	clear
 	./main.out	
 
 main_d:
