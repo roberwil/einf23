@@ -1,18 +1,6 @@
 #include "array.h"
 
-/* void build_array(){
-    Array = (ArrayClass*)malloc(sizeof(ArrayClass));
-    Array->init = array_init;
-    Array->destroy = array_destroy;
-    Array->is_empty = array_is_empty;
-    Array->len = array_len;
-    Array->unshift = array_unshift;
-    Array->push = array_push;
-    Array->shift = array_shift;
-    Array->pop = array_pop;
-} */
-
-ArrayClass Array(){
+ArrayClass array_build(){
     ArrayClass obj;
     
     obj.init = array_init;
@@ -28,7 +16,6 @@ ArrayClass Array(){
 }
 
 OArray array_init(ArrayType type) {
-    //build_array();
     OArray array = (OArray)malloc(sizeof(_array));
     // set the array type
     array->type = type;
@@ -55,7 +42,6 @@ void array_destroy(OArray array) {
 }
 
 int array_is_empty(OArray array) {
-    printf("%d\n", array->len);
     // Check whether the array is empty or not
     return array->len == 0 && array->start == nil && array->end == nil;
 }

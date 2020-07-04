@@ -101,10 +101,15 @@ void example3() {
     }
 }
 
+E23Class e23;
+
 int main(int argc, char const *argv[])
 {   
-    OArray numbers = array_init(ArrayInt);
-    printf("%d\n", array_len(numbers));
-    print_if(array_is_empty(numbers), "Empty?", nil, nil);
+    e23 = e23_init();
+    OArray numbers = e23.Array.init(ArrayInt);
+
+    printf("%d\n", e23.Array.len(numbers));
+    print_if(e23.Array.is_empty(numbers), "Empty?", nil, nil);
+    
     return 0;
 }

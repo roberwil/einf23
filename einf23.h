@@ -20,6 +20,12 @@
 #include "lib/file.h"
 #include "lib/regex.h"
 
+Class {
+    ArrayClass Array;
+} E23Class;
+
+E23Class e23_init();
+
 #endif
 
 

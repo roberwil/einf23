@@ -41,8 +41,7 @@ typedef struct {
     int (*pop)(OArray array);
 } ArrayClass;
 
-ArrayClass Array();
-void build_array();
+ArrayClass array_build();
 
 OArray array_init(ArrayType type);
 void array_destroy(OArray array);
