@@ -5,9 +5,8 @@
 int NAN;
 int TYPE;
 
-Read build_read () {
-	
-    Read read;
+ReadClass read_build () {
+    ReadClass read;
 
     read.string = GetString;
     read.password = GetPassword;
@@ -20,7 +19,6 @@ Read build_read () {
     read.wdoublen = WGetDouble;
         
     return read;
-
 }
 
 /*

@@ -22,6 +22,7 @@
 
 Class {
     ArrayClass Array;
+    ReadClass Read;
 } E23Class;
 
 E23Class e23_init();

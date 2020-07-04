@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include "einf23.h"
 
+E23Class e23;
+
 void print_if(int condition, char* title, char* yes, char* no) {
 
     #ifndef nil
@@ -27,14 +29,13 @@ void print_if(int condition, char* title, char* yes, char* no) {
 
 //Read input
 void example1() {
-    Read read = build_read();
     String str;
     int number;
 
-    str = read.string();
+    str = e23.Read.string();
     printf("%s\n", str);
 
-    number = read.winteger("$", nil);
+    number = e23.Read.winteger("$", nil);
     printf("%d\n", number);
 }
 
@@ -101,15 +102,22 @@ void example3() {
     }
 }
 
-E23Class e23;
-
-int main(int argc, char const *argv[])
-{   
-    e23 = e23_init();
+//array.c
+void example4() {
     OArray numbers = e23.Array.init(ArrayInt);
 
     printf("%d\n", e23.Array.len(numbers));
     print_if(e23.Array.is_empty(numbers), "Empty?", nil, nil);
-    
+}
+
+int main(int argc, char const *argv[])
+{   
+    e23 = e23_init();
+
+    example1();
+    //example2();
+    //example3();
+    //example4();
+
     return 0;
 }

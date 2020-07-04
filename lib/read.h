@@ -23,9 +23,9 @@ typedef struct
     double (*wdoublen)(String, String);
 	
 	char (*character)();
-}Read;
+}ReadClass;
 
-Read build_read ();
+ReadClass read_build ();
 
 String  GetString();
 String  GetPassword();
