@@ -14,9 +14,10 @@ ReadClass read_build () {
     read.floatn = GetFloat;
     read.doublen = GetDouble;
     read.character = GetChar;
-    read.winteger = WGetInt;
-    read.wfloatn = WGetFloat;
-    read.wdoublen = WGetDouble;
+    
+    read.Warning.integer = WGetInt;
+    read.Warning.floatn = WGetFloat;
+    read.Warning.doublen = WGetDouble;
         
     return read;
 }

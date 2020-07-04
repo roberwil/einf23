@@ -35,7 +35,7 @@ void example1() {
     str = e23.Read.string();
     printf("%s\n", str);
 
-    number = e23.Read.winteger("$", nil);
+    number = e23.Read.Warning.integer("$", nil);
     printf("%d\n", number);
 }
 

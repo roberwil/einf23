@@ -8,21 +8,23 @@
 #include <stdarg.h>
 #include "types.h"
 
-typedef struct 
-{
+Class {
+    int (*integer)(String, String);
+	float (*floatn)(String, String);
+	double (*doublen)(String, String);
+} ReadClassWarning;
+
+Class {
 	String (*string)();
 	String (*password)();
 	
 	int (*integer)();
-    int (*winteger)(String, String);
-	
 	float (*floatn)();
-    float (*wfloatn)(String, String);
-	
 	double (*doublen)();
-    double (*wdoublen)(String, String);
 	
 	char (*character)();
+	
+	ReadClassWarning Warning;
 }ReadClass;
 
 ReadClass read_build ();
