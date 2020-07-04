@@ -23,9 +23,11 @@
 Class {
     ArrayClass Array;
     ReadClass Read;
+    void (*suicide)();
 } E23Class;
 
 E23Class e23_init();
+void suicide();
 
 #endif
 
