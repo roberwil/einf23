@@ -17,5 +17,8 @@ main:
 	clear
 	./main.out	
 
+main_d:
+	gcc -g -Wall *.c ./lib/*.c -o main_d.out
+
 clean:
 	rm $(OFILES)

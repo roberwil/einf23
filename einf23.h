@@ -15,6 +15,10 @@
 #include "lib/string.h"
 #include "lib/loop.h"
 #include "lib/array.h"
+#include "lib/bool.h"
+#include "lib/garbage_collector.h"
+#include "lib/file.h"
+#include "lib/regex.h"
 
 #endif
 

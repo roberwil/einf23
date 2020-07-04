@@ -103,40 +103,8 @@ void example3() {
 
 int main(int argc, char const *argv[])
 {   
-    List list;
-    ListItem item;
-
-    init(list);
-    print_if(is_empty(list), "Empty", nil, nil);
-
-    item.number = 12;
-    insert_start(list, &item);
-
-    item.number = 0;
-    insert_start(list, &item);
-
-    item.number = 1;
-    insert_start(list, &item);
-
-    item.number = 2;
-    insert_end(list, &item);
-
-    item.number = 5;
-    insert_end(list, &item);
-
-    item.number = 13;
-    insert_end(list, &item);
-
-    print_if(is_empty(list), "Empty", nil, nil);
-    print(list);
-    printf("Length: %d\n", len(list));
-
-    remove_start(list);
-    remove_end(list);
-
-    print(list);
-    printf("Length: %d\n", len(list));
-    
-    destroy(list);
+    OArray numbers = array_init(ArrayInt);
+    printf("%d\n", array_len(numbers));
+    print_if(array_is_empty(numbers), "Empty?", nil, nil);
     return 0;
 }
