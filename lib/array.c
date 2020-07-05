@@ -192,3 +192,82 @@ int array_pop(OArray array) {
 
     return TRUE;
 }
+
+void array_print(OArray list) {
+    if(array_is_empty(list)) {
+        printf("[]\n");
+        return;
+    }
+
+    Node nd = list->start; 
+    int _len = array_len(list);
+
+
+    for (int i = 0; i < _len; i++) {
+        if (i == 0)
+            printf("[%d, ", nd->item.Int);
+        else if (i == _len - 1)
+            printf("%d]", nd->item.Int);
+        else
+            printf("%d, ", nd->item.Int);
+
+        nd = nd->next;
+    }
+
+    printf("\n");
+}
+
+void* array_origin(OArray array) {
+    void* result = nil;
+
+    Node node = array->start; 
+    int len = array_len(array);
+
+    switch(array->type) {
+        case ArrayInt: {
+            int* items = (int*)calloc(len, sizeof(int));
+
+            for (int i = 0; i < len; i++) {
+                *(items + i) = node->item.Int;
+                node = node->next;
+            }
+
+            result = items;
+        } break;
+
+        case ArrayFloat: {
+            float* items = (float*)calloc(len, sizeof(float));
+
+            for (int i = 0; i < len; i++) {
+                *(items + i) = node->item.Float;
+                node = node->next;
+            }
+
+            result = items;
+        } break;
+
+        case ArrayDouble: {
+            double* items = (double*)calloc(len, sizeof(double));
+
+            for (int i = 0; i < len; i++) {
+                *(items + i) = node->item.Double;
+                node = node->next;
+            }
+
+            result = items;
+        } break;
+
+        case ArrayChar: {
+            char* items = (char*)calloc(len, sizeof(char));
+
+            for (int i = 0; i < len; i++) {
+                *(items + i) = node->item.Char;
+                node = node->next;
+            }
+
+            result = items;
+        } break;
+    }
+
+    return result;
+}

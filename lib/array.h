@@ -42,6 +42,7 @@ typedef struct {
 
 typedef struct {
     OArray (*init)(ArrayType type);
+    void* (*origin)(OArray array);
     void (*destroy)(OArray array);
 
     int (*is_empty)(OArray array);
@@ -52,13 +53,14 @@ typedef struct {
 
     int (*shift)(OArray array);
     int (*pop)(OArray array);
-    
+
     ArrayItemFunctions Itemize;
 } ArrayClass;
 
 ArrayClass array_build();
 
 OArray array_init(ArrayType type);
+void* array_origin(OArray array);
 void array_destroy(OArray array);
 void array_print(OArray array);
 

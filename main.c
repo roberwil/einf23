@@ -104,10 +104,12 @@ void example3() {
 
 //array.c
 void example4() {
+    
     OArray numbers = e23.Array.init(ArrayInt);
 
     printf("%d\n", e23.Array.len(numbers));
     print_if(e23.Array.is_empty(numbers), "Empty?", nil, nil);
+    array_print(numbers);
 
     e23.Array.unshift(numbers, e23.Array.Itemize.Int(43));
     e23.Array.unshift(numbers, e23.Array.Itemize.Int(53));
@@ -119,7 +121,35 @@ void example4() {
 
     printf("%d\n", e23.Array.len(numbers));
     print_if(e23.Array.is_empty(numbers), "Empty?", nil, nil);
+    array_print(numbers);
 
+    e23.Array.shift(numbers);
+    e23.Array.pop(numbers);
+
+    printf("%d\n", e23.Array.len(numbers));
+    print_if(e23.Array.is_empty(numbers), "Empty?", nil, nil);
+    array_print(numbers);
+
+}
+
+void* test(){
+    void* p;
+    int option = 1;
+    switch (option) {
+        case 1: {
+            int a = 90;
+            p = &a;
+            printf("%d\n", a);
+        } break;
+        default:
+            printf("Hi, babe!\n");
+    }
+
+    return p;
+}
+
+void test2(int* item){
+    printf("%d\n", *item);
 }
 
 int main(int argc, char const *argv[])
@@ -129,7 +159,8 @@ int main(int argc, char const *argv[])
     //example1();
     //example2();
     //example3();
-    example4();
+    //example4();
+    //test2(test());
 
     return 0;
 }
