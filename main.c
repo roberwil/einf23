@@ -43,31 +43,31 @@ void example1() {
 void example2() {
     int i;
 
-    for (;range(-20, 10, &i);){
+    for (;e23.Loop.range(-20, 10, &i);){
         printf("%d\n", i);
     }
     
     printf("\n\n");
 
-    for (;range(10, -2, &i);){
+    for (;e23.Loop.range(10, -2, &i);){
         printf("%d\n", i);
     }
 
     printf("\n\n");
 
-    while(range(0, 10, &i)) {
-        printf("%d\n", i);
-    }
-    
-    printf("\n\n");
-
-    while(range_with_step(0, 10, 2, &i)) {
+    while(e23.Loop.range(0, 10, &i)) {
         printf("%d\n", i);
     }
     
     printf("\n\n");
 
-    while(range_with_step(10, 21, 1, &i)) {
+    while(e23.Loop.range_with_step(0, 10, 2, &i)) {
+        printf("%d\n", i);
+    }
+    
+    printf("\n\n");
+
+    while(e23.Loop.range_with_step(10, 21, 1, &i)) {
         printf("%d\n", i);
     }
 
@@ -79,25 +79,25 @@ void example3() {
     int value, index, size = 5;
     char c;
 
-    for(;each_int(iarray, size, &value);){
+    for(;e23.Loop.each_int(iarray, size, &value);){
         printf("%d ", value);
     }
 
     printf("\n\n");
 
-    for(;each_int_with_index(iarray, size, &value, &index);){
+    for(;e23.Loop.each_int_with_index(iarray, size, &value, &index);){
         printf("array[%d] = %d\n", index, value);
     }    
 
     printf("\n");
     
-    for(;each_char("Hello, commit!", &c);){
+    for(;e23.Loop.each_char("Hello, commit!", &c);){
         printf("%c ", c);
     }
 
     printf("\n");
 
-    for(;each_char_with_index("Hello, commit!", &c, &index);){
+    for(;e23.Loop.each_char_with_index("Hello, commit!", &c, &index);){
         printf("string[%d] = %c\n", index, c);
     }
 }
@@ -105,22 +105,20 @@ void example3() {
 //array.c
 void example4() {
     OArray numbers = e23.Array.init(ArrayInt);
-    int item, item2;
 
     printf("%d\n", e23.Array.len(numbers));
     print_if(e23.Array.is_empty(numbers), "Empty?", nil, nil);
-    array_print(numbers);
 
-    item = 12; e23.Array.unshift(numbers, &item);
-    item = 43; e23.Array.push(numbers, &item);
-    item = 67; e23.Array.push(numbers, &item);
-    item = 21; e23.Array.push(numbers, &item);
-    item = 56; e23.Array.push(numbers, &item);
-    item = 71; e23.Array.unshift(numbers, &item);
+    e23.Array.unshift(numbers, e23.Array.Itemize.Int(43));
+    e23.Array.unshift(numbers, e23.Array.Itemize.Int(53));
+    e23.Array.unshift(numbers, e23.Array.Itemize.Int(78));
+
+    e23.Array.push(numbers, e23.Array.Itemize.Int(90));
+    e23.Array.push(numbers, e23.Array.Itemize.Int(11));
+    e23.Array.push(numbers, e23.Array.Itemize.Int(67));
 
     printf("%d\n", e23.Array.len(numbers));
     print_if(e23.Array.is_empty(numbers), "Empty?", nil, nil);
-    array_print(numbers);
 
 }
 
@@ -131,7 +129,7 @@ int main(int argc, char const *argv[])
     //example1();
     //example2();
     //example3();
-    //example4();
+    example4();
 
     return 0;
 }

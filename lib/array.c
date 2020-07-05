@@ -1,5 +1,10 @@
 #include "array.h"
 
+int* itemize_int(int item){int *pitem = &item; return pitem;}
+float* itemize_float(float item){float *pitem; return pitem;}
+double* itemize_double(double item){double *pitem; return pitem;}
+char* itemize_char(char item){char *pitem; return pitem;}
+
 ArrayClass array_build(){
     ArrayClass obj;
     
@@ -19,11 +24,6 @@ ArrayClass array_build(){
     
     return obj;
 }
-
-int* itemize_int(int item) { return &item; }
-float* itemize_float(float item) { return &item; }
-double* itemize_double(double item) { return &item; }
-char* itemize_char(char item)  { return &item; }
 
 OArray array_init(ArrayType type) {
     OArray array = (OArray)malloc(sizeof(_array));
@@ -192,4 +192,3 @@ int array_pop(OArray array) {
 
     return TRUE;
 }
-
