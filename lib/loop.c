@@ -1,10 +1,10 @@
 #include "loop.h"
 
-int range(int min, int max, int* counter) {
-    return range_with_step(min, max, 1, counter);
+int loop_range(int min, int max, int* counter) {
+    return loop_range_with_step(min, max, 1, counter);
 }
  
-int range_with_step(int min, int max, int step_value, int* counter) {
+int loop_range_with_step(int min, int max, int step_value, int* counter) {
     static int start = 0, step = 1, is_start = TRUE;
 
     if (is_start) {
@@ -26,7 +26,7 @@ int range_with_step(int min, int max, int step_value, int* counter) {
         return TRUE;
 }
 
-int each_number(void* array, int size, void* value, NumberClass number_class) {
+int loop_each_number(void* array, int size, void* value, LoopNumberType number_class) {
     static int pos = 0;
 
     switch (number_class) {
@@ -51,7 +51,7 @@ int each_number(void* array, int size, void* value, NumberClass number_class) {
         return TRUE;
 }
 
-int each_index(int limit) {
+int loop_each_index(int limit) {
     static int i = 0;
     int index;
 
@@ -61,34 +61,34 @@ int each_index(int limit) {
     return index;
 }
 
-int each_int(int* array, int size, int* value) {
-    return each_number(array, size, value, Integer);
+int loop_each_int(int* array, int size, int* value) {
+    return loop_each_number(array, size, value, Integer);
 }
 
-int each_int_with_index(int* array, int size, int* value, int* index) {
-    *index = each_index(size);
-    return each_number(array, size, value, Integer);
+int loop_each_int_with_index(int* array, int size, int* value, int* index) {
+    *index = loop_each_index(size);
+    return loop_each_number(array, size, value, Integer);
 }
 
-int each_float(float* array, int size, float* value) {
-    return each_number(array, size, value, Float);
+int loop_each_float(float* array, int size, float* value) {
+    return loop_each_number(array, size, value, Float);
 }
 
-int each_float_with_index(float* array, int size, float* value, int* index) {
-    *index = each_index(size);
-    return each_number(array, size, value, Float);
+int loop_each_float_with_index(float* array, int size, float* value, int* index) {
+    *index = loop_each_index(size);
+    return loop_each_number(array, size, value, Float);
 }
 
-int each_double(double* array, int size, double* value) {
-    return each_number(array, size, value, Double);
+int loop_each_double(double* array, int size, double* value) {
+    return loop_each_number(array, size, value, Double);
 }
 
-int each_double_with_index(double* array, int size, double* value, int* index) {
-    *index = each_index(size);
-    return each_number(array, size, value, Double);
+int loop_each_double_with_index(double* array, int size, double* value, int* index) {
+    *index = loop_each_index(size);
+    return loop_each_number(array, size, value, Double);
 }
 
-int each_char(String array, char* value) {
+int loop_each_char(String array, char* value) {
     static int pos = 0;
 
     *value = *(array + pos);
@@ -102,7 +102,7 @@ int each_char(String array, char* value) {
         return TRUE;
 }
 
-int each_char_with_index(char* array, char* value, int* index) {
+int loop_each_char_with_index(char* array, char* value, int* index) {
     static int pos = 0;
 
     *value = *(array + pos);

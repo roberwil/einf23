@@ -10,19 +10,19 @@ typedef enum {
     Integer = 1,
     Float,
     Double  
-} LoopNumberClass;
+} LoopNumberType;
 
 Class {
-    int (*loop_range)(int min, int max, int* counter);
-    int (*loop_range_with_step)(int min, int max, int _step, int* counter);
-    int (*loop_each_int)(int* array, int size, int* value);
-    int (*loop_each_int_with_index)(int* array, int size, int* value, int* index); 
-    int (*loop_each_float)(float* array, int size, float* value);
+    int (*range)(int min, int max, int* counter);
+    int (*range_with_step)(int min, int max, int _step, int* counter);
+    int (*each_int)(int* array, int size, int* value);
+    int (*each_int_with_index)(int* array, int size, int* value, int* index); 
+    int (*each_float)(float* array, int size, float* value);
     int (*each_float_with_index)(float* array, int size, float* value, int* index);
-    int (*loop_each_double)(double* array, int size, double* value);
-    int (*loop_each_double_with_index)(double* array, int size, double* value, int* index);
-    int (*loop_each_char)(String array, char* value);
-    int (*loop_each_char_with_index)(String array, char* value, int* index);   
+    int (*each_double)(double* array, int size, double* value);
+    int (*each_double_with_index)(double* array, int size, double* value, int* index);
+    int (*each_char)(String array, char* value);
+    int (*each_char_with_index)(String array, char* value, int* index);   
 } LoopClass;
 
 
@@ -87,7 +87,7 @@ int loop_each_float(float* array, int size, float* value);
  * @index: the index of each value of the array as long as it is being iterated
  * @return: TRUE if the array has reached its end, FALSE if not
  */ 
-int each_float_with_index(float* array, int size, float* value, int* index);
+int loop_each_float_with_index(float* array, int size, float* value, int* index);
 
 /**
  * Iterates an array of doubles
