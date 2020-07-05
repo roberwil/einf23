@@ -10,7 +10,7 @@ typedef enum {
     Integer = 1,
     Float,
     Double  
-} NumberClass;
+} LoopNumberClass;
 
 /**
  * Creates a range deifned as follows: 
@@ -22,7 +22,7 @@ typedef enum {
  * @counter: each value of the range
  * @return TRUE if the range is in its limits, FALSE if not 
  */ 
-int range(int min, int max, int* counter);
+int loop_range(int min, int max, int* counter);
 
 /**
  * Creates a range deifned as follows: 
@@ -35,7 +35,7 @@ int range(int min, int max, int* counter);
  * @counter: each value of the range
  * @return TRUE if the range is in its limits, FALSE if not 
  */
-int range_with_step(int min, int max, int _step, int* counter);
+int loop_range_with_step(int min, int max, int _step, int* counter);
 
 /**
  * Iterates an array of integers
@@ -44,7 +44,7 @@ int range_with_step(int min, int max, int _step, int* counter);
  * @value: holds each value of the array as long as it is being iterated
  * @return: TRUE if the array has reached its end, FALSE if not
  */ 
-int each_int(int* array, int size, int* value);
+int loop_each_int(int* array, int size, int* value);
 
 /**
  * Iterates an array of integers
@@ -54,7 +54,7 @@ int each_int(int* array, int size, int* value);
  * @index: the index of each value of the array as long as it is being iterated
  * @return: TRUE if the array has reached its end, FALSE if not
  */ 
-int each_int_with_index(int* array, int size, int* value, int* index);
+int loop_each_int_with_index(int* array, int size, int* value, int* index);
 
 /**
  * Iterates an array of floats
@@ -63,7 +63,7 @@ int each_int_with_index(int* array, int size, int* value, int* index);
  * @value: holds each value of the array as long as it is being iterated
  * @return: TRUE if the array has reached its end, FALSE if not
  */ 
-int each_float(float* array, int size, float* value);
+int loop_each_float(float* array, int size, float* value);
 
 /**
  * Iterates an array of floats
@@ -82,7 +82,7 @@ int each_float_with_index(float* array, int size, float* value, int* index);
  * @value: holds each value of the array as long as it is being iterated
  * @return: TRUE if the array has reached its end, FALSE if not
  */ 
-int each_double(double* array, int size, double* value);
+int loop_each_double(double* array, int size, double* value);
 
 /**
  * Iterates an array of doubles
@@ -92,7 +92,7 @@ int each_double(double* array, int size, double* value);
  * @index: the index of each value of the array as long as it is being iterated
  * @return: TRUE if the array has reached its end, FALSE if not
  */ 
-int each_double_with_index(double* array, int size, double* value, int* index);
+int loop_each_double_with_index(double* array, int size, double* value, int* index);
 
 /**
  * Iterates an array of chars, which is string
@@ -100,7 +100,7 @@ int each_double_with_index(double* array, int size, double* value, int* index);
  * @value: holds each value of the string as long as it is being iterated
  * @return: TRUE if the array has reached its end, FALSE if not
  */ 
-int each_char(String array, char* value);
+int loop_each_char(String array, char* value);
 
 /**
  * Iterates an array of chars, which is string
@@ -109,6 +109,6 @@ int each_char(String array, char* value);
  * @index: the index of each value of the array as long as it is being iterated
  * @return: TRUE if the array has reached its end, FALSE if not
  */ 
-int each_char_with_index(String array, char* value, int* index);
+int loop_each_char_with_index(String array, char* value, int* index);
 
 #endif

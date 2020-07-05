@@ -23,6 +23,7 @@
 Class {
     ArrayClass Array;
     ReadClass Read;
+    LoopClass Loop;
     void (*suicide)();
 } E23Class;
 

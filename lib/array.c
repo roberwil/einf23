@@ -97,6 +97,7 @@ int array_unshift(OArray array, void* item) {
 
     // Set the node item
     array_item_type_decode(node, item, array->type);
+    node->index = array_len(array);
 
     // The new head points to no previous node
     node->previous = nil;
