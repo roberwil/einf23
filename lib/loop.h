@@ -12,6 +12,20 @@ typedef enum {
     Double  
 } LoopNumberClass;
 
+Class {
+    int (*loop_range)(int min, int max, int* counter);
+    int (*loop_range_with_step)(int min, int max, int _step, int* counter);
+    int (*loop_each_int)(int* array, int size, int* value);
+    int (*loop_each_int_with_index)(int* array, int size, int* value, int* index); 
+    int (*loop_each_float)(float* array, int size, float* value);
+    int (*each_float_with_index)(float* array, int size, float* value, int* index);
+    int (*loop_each_double)(double* array, int size, double* value);
+    int (*loop_each_double_with_index)(double* array, int size, double* value, int* index);
+    int (*loop_each_char)(String array, char* value);
+    int (*loop_each_char_with_index)(String array, char* value, int* index);   
+} LoopClass;
+
+
 /**
  * Creates a range deifned as follows: 
  * [min; max[, min and max are part of Z
