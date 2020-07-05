@@ -10,6 +10,8 @@ ArrayClass array_build(){
     
     obj.init = array_init;
     obj.destroy = array_destroy;
+    obj.origin = array_origin;
+
     obj.is_empty = array_is_empty;
     obj.len = array_len;
     obj.unshift = array_unshift;
@@ -191,30 +193,6 @@ int array_pop(OArray array) {
     array->len--;
 
     return TRUE;
-}
-
-void array_print(OArray list) {
-    if(array_is_empty(list)) {
-        printf("[]\n");
-        return;
-    }
-
-    Node nd = list->start; 
-    int _len = array_len(list);
-
-
-    for (int i = 0; i < _len; i++) {
-        if (i == 0)
-            printf("[%d, ", nd->item.Int);
-        else if (i == _len - 1)
-            printf("%d]", nd->item.Int);
-        else
-            printf("%d, ", nd->item.Int);
-
-        nd = nd->next;
-    }
-
-    printf("\n");
 }
 
 void* array_origin(OArray array) {

@@ -62,7 +62,6 @@ ArrayClass array_build();
 OArray array_init(ArrayType type);
 void* array_origin(OArray array);
 void array_destroy(OArray array);
-void array_print(OArray array);
 
 int array_is_empty(OArray array);
 int array_len(OArray array);
