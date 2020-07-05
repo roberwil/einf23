@@ -1,5 +1,22 @@
 #include "loop.h"
 
+LoopClass loop_build() {
+    LoopClass obj;
+
+    obj.range = loop_range;
+    obj.range_with_step = loop_range_with_step;
+    obj.each_int = loop_each_int;
+    obj.each_int_with_index = loop_each_int_with_index; 
+    obj.each_float = loop_each_float;
+    obj.each_float_with_index = loop_each_float_with_index;
+    obj.each_double = loop_each_double;
+    obj.each_double_with_index = loop_each_double_with_index;
+    obj.each_char = loop_each_char;
+    obj.each_char_with_index = loop_each_char_with_index;  
+
+    return obj;
+}
+
 int loop_range(int min, int max, int* counter) {
     return loop_range_with_step(min, max, 1, counter);
 }

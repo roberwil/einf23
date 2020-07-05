@@ -26,6 +26,8 @@ Class {
 } LoopClass;
 
 
+LoopClass loop_build();
+
 /**
  * Creates a range deifned as follows: 
  * [min; max[, min and max are part of Z
