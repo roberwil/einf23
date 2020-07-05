@@ -11,9 +11,19 @@ ArrayClass array_build(){
     obj.push = array_push;
     obj.shift = array_shift;
     obj.pop = array_pop;
+
+    obj.Itemize.Int = itemize_int;
+    obj.Itemize.Float = itemize_float;
+    obj.Itemize.Double = itemize_double;
+    obj.Itemize.Char = itemize_char;
     
     return obj;
 }
+
+int* itemize_int(int item) { return &item; }
+float* itemize_float(float item) { return &item; }
+double* itemize_double(double item) { return &item; }
+char* itemize_char(char item)  { return &item; }
 
 OArray array_init(ArrayType type) {
     OArray array = (OArray)malloc(sizeof(_array));
@@ -25,30 +35,6 @@ OArray array_init(ArrayType type) {
     array->len = 0;
 
     return array;
-}
-
-void array_print(OArray array) {
-    if(array_is_empty(array)) {
-        printf("[]\n");
-        return;
-    }
-
-    Node node = array->start; 
-    int len = array_len(array);
-
-
-    for (int i = 0; i < len; i++) {
-        if (i == 0)
-            printf("[%d, ", node->item.Int);
-        else if (i == len - 1)
-            printf("%d]", node->item.Int);
-        else
-            printf("%d, ", node->item.Int);
-
-        node = node->next;
-    }
-
-    printf("\n");
 }
 
 void array_destroy(OArray array) {

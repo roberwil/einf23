@@ -34,6 +34,13 @@ typedef array_node* Node;
 typedef _array* OArray;
 
 typedef struct {
+    int* (*Int)(int item);
+    float* (*Float)(float item);
+    double* (*Double)(double item);
+    char* (*Char)(char item);
+} ArrayItemFunctions;
+
+typedef struct {
     OArray (*init)(ArrayType type);
     void (*destroy)(OArray array);
 
@@ -45,6 +52,8 @@ typedef struct {
 
     int (*shift)(OArray array);
     int (*pop)(OArray array);
+    
+    ArrayItemFunctions Itemize;
 } ArrayClass;
 
 ArrayClass array_build();
