@@ -56,6 +56,20 @@ void array_destroy(OArray array) {
     }
 }
 
+int array_each(OArray array, void* value) {
+    switch (array->type) {
+        case ArrayInt: {} break;
+        case ArrayFloat: {} break;
+        case ArrayDouble: {} break;
+        case ArrayChar: {} break;
+    } 
+    return 0;
+}
+
+int array_each_with_index(OArray array, void* value, int index) {
+    return 0;
+}
+
 int array_is_empty(OArray array) {
     // Check whether the array is empty or not
     return array->len == 0 && array->start == nil && array->end == nil;
