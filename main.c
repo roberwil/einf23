@@ -105,9 +105,23 @@ void example3() {
 //array.c
 void example4() {
     OArray numbers = e23.Array.init(ArrayInt);
+    int item, item2;
 
     printf("%d\n", e23.Array.len(numbers));
     print_if(e23.Array.is_empty(numbers), "Empty?", nil, nil);
+    array_print(numbers);
+
+    item = 12; e23.Array.unshift(numbers, &item);
+    item = 43; e23.Array.push(numbers, &item);
+    item = 67; e23.Array.push(numbers, &item);
+    item = 21; e23.Array.push(numbers, &item);
+    item = 56; e23.Array.push(numbers, &item);
+    item = 71; e23.Array.unshift(numbers, &item);
+
+    printf("%d\n", e23.Array.len(numbers));
+    print_if(e23.Array.is_empty(numbers), "Empty?", nil, nil);
+    array_print(numbers);
+
 }
 
 int main(int argc, char const *argv[])
@@ -117,7 +131,7 @@ int main(int argc, char const *argv[])
     //example1();
     //example2();
     //example3();
-    //example4();
+    example4();
 
     return 0;
 }

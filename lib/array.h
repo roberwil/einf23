@@ -11,8 +11,13 @@ typedef enum {
     ArrayChar
 } ArrayType;
 
+typedef struct ArrayItem {
+    int Int; float Float; double Double;
+    char Char;
+} ArrayItem;
+
 typedef struct array_node {
-    void* item;
+    ArrayItem item;
     int index;
     struct array_node* previous;
     struct array_node* next;
@@ -46,6 +51,7 @@ ArrayClass array_build();
 
 OArray array_init(ArrayType type);
 void array_destroy(OArray array);
+void array_print(OArray array);
 
 int array_is_empty(OArray array);
 int array_len(OArray array);

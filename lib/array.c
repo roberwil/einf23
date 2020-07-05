@@ -27,6 +27,30 @@ OArray array_init(ArrayType type) {
     return array;
 }
 
+void array_print(OArray array) {
+    if(array_is_empty(array)) {
+        printf("[]\n");
+        return;
+    }
+
+    Node node = array->start; 
+    int len = array_len(array);
+
+
+    for (int i = 0; i < len; i++) {
+        if (i == 0)
+            printf("[%d, ", node->item.Int);
+        else if (i == len - 1)
+            printf("%d]", node->item.Int);
+        else
+            printf("%d, ", node->item.Int);
+
+        node = node->next;
+    }
+
+    printf("\n");
+}
+
 void array_destroy(OArray array) {
     Node node = array->start, temp;
 
@@ -51,6 +75,20 @@ int array_len(OArray array) {
     return array->len;
 }
 
+void array_item_type_decode(Node node, void* item, ArrayType type) {
+    switch(type) {
+        case ArrayInt:
+            node->item.Int = *(int*)item;
+        case ArrayFloat:
+            node->item.Float = *(float*)item;
+        case ArrayDouble:
+            node->item.Double = *(double*)item;
+        case ArrayChar:
+            node->item.Char = *(char*)item;
+        break;
+    }
+}
+
 int array_unshift(OArray array, void* item) {
     // Create the node to be inserted
     Node node = (Node)malloc(sizeof(array_node));
@@ -58,7 +96,8 @@ int array_unshift(OArray array, void* item) {
     if (node == nil) return FALSE;
 
     // Set the node item
-    node->item = item;
+    array_item_type_decode(node, item, array->type);
+
     // The new head points to no previous node
     node->previous = nil;
 
@@ -88,9 +127,10 @@ int array_push(OArray array, void* item) {
     Node node = (Node)malloc(sizeof(array_node));
     // If, somehow, memory is not available
     if (node == nil) return FALSE;
+    
     // Set the node item
-    //TODO: item is generic now, adapt
-    node->item = item;
+    array_item_type_decode(node, item, array->type);
+    
     // Since it is an insertion at the end, the node has to point to nowhere
     node->next = nil;
 
