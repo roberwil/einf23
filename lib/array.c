@@ -58,10 +58,21 @@ void array_destroy(OArray array) {
 
 int array_each(OArray array, void* value) {
     switch (array->type) {
-        case ArrayInt: {} break;
-        case ArrayFloat: {} break;
-        case ArrayDouble: {} break;
-        case ArrayChar: {} break;
+        case ArrayInt: {
+            return loop_each_int(array_origin(array), array_len(array), value);
+        } break;
+
+        case ArrayFloat: {
+
+        } break;
+
+        case ArrayDouble: {
+
+        } break;
+
+        case ArrayChar: {
+
+        } break;
     } 
     return 0;
 }
