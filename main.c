@@ -135,28 +135,9 @@ void example4() {
     while(e23.Loop.each_int(e23.Array.origin(numbers), e23.Array.len(numbers), &item)) {
         printf("%d\n", item);
     }
-    
 
-}
+    e23.Array.destroy(numbers);
 
-void* test(){
-    void* p;
-    int option = 1;
-    switch (option) {
-        case 1: {
-            int a = 90;
-            p = &a;
-            printf("%d\n", a);
-        } break;
-        default:
-            printf("Hi, babe!\n");
-    }
-
-    return p;
-}
-
-void test2(int* item){
-    printf("%d\n", *item);
 }
 
 int main(int argc, char const *argv[])
@@ -167,7 +148,7 @@ int main(int argc, char const *argv[])
     //example2();
     //example3();
     example4();
-    //test2(test());
 
+    e23.suicide();
     return 0;
 }

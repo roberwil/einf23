@@ -2,6 +2,7 @@
 #define ARRAY_H
 
 #include "types.h"
+#include "loop.h"
 #include <stdio.h>
 #include <stdlib.h>
 typedef enum {
@@ -66,7 +67,7 @@ void* array_origin(OArray array);
 void array_destroy(OArray array);
 
 int array_each(OArray, void* value);
-int array_each(OArray, void* value, int index);
+int array_each_with_index(OArray, void* value, int index);
 int array_is_empty(OArray array);
 int array_len(OArray array);
 

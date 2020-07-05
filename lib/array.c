@@ -12,8 +12,11 @@ ArrayClass array_build(){
     obj.destroy = array_destroy;
     obj.origin = array_origin;
 
+    obj.each = array_each;
+    obj.each_with_index = array_each_with_index;
     obj.is_empty = array_is_empty;
     obj.len = array_len;
+
     obj.unshift = array_unshift;
     obj.push = array_push;
     obj.shift = array_shift;
