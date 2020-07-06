@@ -72,7 +72,6 @@ void array_retrieve_type_decode(Node node, void* item, ArrayType type) {
 }
 
 Bool array_get(OArray array, int index, void* value) {
-    
     int len = array_len(array);
     if(index >= len) return false;
 
@@ -109,6 +108,38 @@ Bool array_get(OArray array, int index, void* value) {
 }
 
 Bool array_set(OArray array, int index, void* value) {
+    int len = array_len(array);
+    if(index >= len) return false;
+
+    int middle = (int)len/2;
+    Node node; 
+    
+    if (index <= middle) {
+        node = array->start;
+
+        for (int i = 0; i < len; i++) {
+
+            if (i == index) {
+                array_insert_type_decode(node, value, array->type);
+                break; 
+            }
+
+            node = node->next;
+        }
+    } else {
+        node = array->end;
+
+        for (int i = len - 1; i >= 0; i--) {
+
+            if (i == index) {
+                array_insert_type_decode(node, value, array->type);
+                break; 
+            }
+
+            node = node->previous;
+        }
+    }
+
     return true;
 }
 

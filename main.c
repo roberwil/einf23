@@ -138,6 +138,9 @@ void example4() {
         printf("%d\n", item);
     }
 
+    e23.Array.set(numbers, 1, e23.Array.Itemize.Int(66));
+    e23.Array.set(numbers, 2, e23.Array.Itemize.Int(70));
+
     printf("print powered by -> Loop.range, Array.get\n");
     while(e23.Loop.range(0, e23.Array.len(numbers), &index)){
         e23.Array.get(numbers, index, &item);
