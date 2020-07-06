@@ -122,6 +122,7 @@ void example4() {
     printf("%d\n", e23.Array.len(numbers));
     print_if(e23.Array.is_empty(numbers), "Empty?", nil, nil);
 
+    printf("print powered by -> Loop.each_int, Array.origin\n");
     while(e23.Loop.each_int(e23.Array.origin(numbers), e23.Array.len(numbers), &item)) {
         printf("%d\n", item);
     }
@@ -132,10 +133,12 @@ void example4() {
     printf("%d\n", e23.Array.len(numbers));
     print_if(e23.Array.is_empty(numbers), "Empty?", nil, nil);
 
+    printf("print powered by -> Array.each\n");
     while(e23.Array.each(numbers, &item)) {
         printf("%d\n", item);
     }
 
+    printf("print powered by -> Loop.range, Array.get\n");
     while(e23.Loop.range(0, e23.Array.len(numbers), &index)){
         e23.Array.get(numbers, index, &item);
         printf("%d\n", item);

@@ -31,32 +31,78 @@ void array_destroy(OArray array) {
     }
 }
 
-//TODO: Optimize with simplified binary search
+void array_insert_type_decode(Node node, void* item, ArrayType type) {
+    switch(type) {
+        case ArrayInt:
+            node->item.Int = *(int*)item;
+        case ArrayFloat:
+            node->item.Float = *(float*)item;
+        case ArrayDouble:
+            node->item.Double = *(double*)item;
+        case ArrayChar:
+            node->item.Char = *(char*)item;
+        break;
+    }
+}
+
+void array_retrieve_type_decode(Node node, void* item, ArrayType type) {
+    switch(type) {
+        case ArrayInt:
+           *(int*)item = node->item.Int;
+        case ArrayFloat:
+           *(float*)item = node->item.Float;
+        case ArrayDouble:
+           *(double*)item = node->item.Double;
+        case ArrayChar:
+           *(char*)item = node->item.Char;
+        break;
+    }
+}
+
+
 Bool array_get(OArray array, int index, void* value) {
     
     int len = array_len(array);
     if(index >= len) return false;
-    Node node = array->start; 
+
+    int middle = (int)len/2;
+    Node node; 
     
-    switch(array->type) {
-        case ArrayInt: {
-            for (int i = 0; i < len; i++) {
-                if (i == index) {
-                    *(int*)value = node->item.Int;
-                    break; 
+    if (index <= middle) {
+        node = array->start;
+        for (int i = 0; i < len; i++) {
+            if (i == index) {
+                switch(array->type) {
+                    case ArrayInt:
+                        *(int*)value = node->item.Int;
+                    break;
+
+                    case ArrayFloat:
+                        *(float*)value = node->item.Float;
+                    break;
+
+                    case ArrayDouble:
+                        *(double*)value = node->item.Double;
+                    break;
+
+                    case ArrayChar:
+                        *(char*)value = node->item.Char;
+                    break;
                 }
-                node = node->next;
+
+                break; 
             }
-        } break;
-
-        case ArrayFloat: {
-        } break;
-
-        case ArrayDouble: {
-        } break;
-
-        case ArrayChar: {
-        } break;
+            node = node->next;
+        }
+    } else {
+        node = array->end;
+        for (int i = len - 1; i >= 0; i--) {
+            if (i == index) {
+                *(int*)value = node->item.Int;
+                break; 
+            }
+            node = node->previous;
+        }
     }
 
     return true;
@@ -116,20 +162,6 @@ int array_len(OArray array) {
     return array->len;
 }
 
-void array_item_type_decode(Node node, void* item, ArrayType type) {
-    switch(type) {
-        case ArrayInt:
-            node->item.Int = *(int*)item;
-        case ArrayFloat:
-            node->item.Float = *(float*)item;
-        case ArrayDouble:
-            node->item.Double = *(double*)item;
-        case ArrayChar:
-            node->item.Char = *(char*)item;
-        break;
-    }
-}
-
 int array_unshift(OArray array, void* item) {
     // Create the node to be inserted
     Node node = (Node)malloc(sizeof(array_node));
@@ -137,7 +169,7 @@ int array_unshift(OArray array, void* item) {
     if (node == nil) return FALSE;
 
     // Set the node item
-    array_item_type_decode(node, item, array->type);
+    array_insert_type_decode(node, item, array->type);
     node->index = array_len(array);
 
     // The new head points to no previous node
@@ -171,7 +203,7 @@ int array_push(OArray array, void* item) {
     if (node == nil) return FALSE;
     
     // Set the node item
-    array_item_type_decode(node, item, array->type);
+    array_insert_type_decode(node, item, array->type);
     
     // Since it is an insertion at the end, the node has to point to nowhere
     node->next = nil;
