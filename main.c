@@ -111,13 +111,13 @@ void example4() {
     printf("%d\n", e23.Array.len(numbers));
     print_if(e23.Array.is_empty(numbers), "Empty?", nil, nil);
 
-    e23.Array.unshift(numbers, e23.Array.Itemize.Int(43));
-    e23.Array.unshift(numbers, e23.Array.Itemize.Int(53));
-    e23.Array.unshift(numbers, e23.Array.Itemize.Int(78));
-
     e23.Array.push(numbers, e23.Array.Itemize.Int(90));
     e23.Array.push(numbers, e23.Array.Itemize.Int(11));
     e23.Array.push(numbers, e23.Array.Itemize.Int(67));
+    
+    e23.Array.unshift(numbers, e23.Array.Itemize.Int(43));
+    e23.Array.unshift(numbers, e23.Array.Itemize.Int(53));
+    e23.Array.unshift(numbers, e23.Array.Itemize.Int(78));
 
     printf("%d\n", e23.Array.len(numbers));
     print_if(e23.Array.is_empty(numbers), "Empty?", nil, nil);

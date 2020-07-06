@@ -46,6 +46,8 @@ typedef struct {
     void* (*origin)(OArray array);
     void (*destroy)(OArray array);
 
+    void (*get)(OArray array, int* index, void* value);
+    void (*set)(OArray array, int* index, void* value);
     int (*each)(OArray array, void* value);
     int (*each_with_index)(OArray array, void* value, int* index);
     int (*is_empty)(OArray array);
