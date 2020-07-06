@@ -56,6 +56,9 @@ void array_destroy(OArray array) {
     }
 }
 
+void array_get(OArray array, int index, void* value);
+void array_set(OArray array, int index, void* value);
+
 int array_each(OArray array, void* value) {
     switch (array->type) {
         case ArrayInt: {
@@ -63,22 +66,37 @@ int array_each(OArray array, void* value) {
         } break;
 
         case ArrayFloat: {
-
+            return loop_each_float(array_origin(array), array_len(array), value);
         } break;
 
         case ArrayDouble: {
-
+            return loop_each_double(array_origin(array), array_len(array), value);
         } break;
 
         case ArrayChar: {
-
+            return loop_each_char(array_origin(array), value);
         } break;
-    } 
-    return 0;
+    }
 }
 
-int array_each_with_index(OArray array, void* value, int index) {
-    return 0;
+int array_each_with_index(OArray array, void* value, int* index) {
+    switch (array->type) {
+        case ArrayInt: {
+            return loop_each_int_with_index(array_origin(array), array_len(array), value, index);
+        } break;
+
+        case ArrayFloat: {
+            return loop_each_float_with_index(array_origin(array), array_len(array), value, index);
+        } break;
+
+        case ArrayDouble: {
+            return loop_each_double_with_index(array_origin(array), array_len(array), value, index);
+        } break;
+
+        case ArrayChar: {
+            return loop_each_char_with_index(array_origin(array), value, index);
+        } break;
+    }
 }
 
 int array_is_empty(OArray array) {

@@ -132,7 +132,7 @@ void example4() {
     printf("%d\n", e23.Array.len(numbers));
     print_if(e23.Array.is_empty(numbers), "Empty?", nil, nil);
 
-    while(e23.Loop.each_int(e23.Array.origin(numbers), e23.Array.len(numbers), &item)) {
+    while(e23.Array.each(numbers, &item)) {
         printf("%d\n", item);
     }
 
