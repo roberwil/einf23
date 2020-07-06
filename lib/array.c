@@ -35,30 +35,41 @@ void array_insert_type_decode(Node node, void* item, ArrayType type) {
     switch(type) {
         case ArrayInt:
             node->item.Int = *(int*)item;
+        break;
+
         case ArrayFloat:
             node->item.Float = *(float*)item;
+        break;
+
         case ArrayDouble:
             node->item.Double = *(double*)item;
+        break;
+
         case ArrayChar:
             node->item.Char = *(char*)item;
         break;
     }
 }
 
-void array_retrieve_type_decode(Node node, void** item, ArrayType type) {
+void array_retrieve_type_decode(Node node, void* item, ArrayType type) {
     switch(type) {
         case ArrayInt:
-           *(int*)(*(int**)item) = node->item.Int;
+           *(int*)item = node->item.Int;
+        break;
+
         case ArrayFloat:
-           *(float*)(*(float**)item = node->item.Float;
+           *(float*)item = node->item.Float;
+        break;
+
         case ArrayDouble:
-           *(double*)(*(double**)item = node->item.Double;
+           *(double*)item = node->item.Double;
+        break;
+
         case ArrayChar:
-           *(char*)(*(char**)item = node->item.Char;
+           *(char*)item = node->item.Char;
         break;
     }
 }
-
 
 Bool array_get(OArray array, int index, void* value) {
     
@@ -74,7 +85,7 @@ Bool array_get(OArray array, int index, void* value) {
         for (int i = 0; i < len; i++) {
 
             if (i == index) {
-                array_retrieve_type_decode(node, &value, array->type);
+                array_retrieve_type_decode(node, value, array->type);
                 break; 
             }
 
@@ -86,7 +97,7 @@ Bool array_get(OArray array, int index, void* value) {
         for (int i = len - 1; i >= 0; i--) {
 
             if (i == index) {
-                array_retrieve_type_decode(node, &value, array->type);
+                array_retrieve_type_decode(node, value, array->type);
                 break; 
             }
 
