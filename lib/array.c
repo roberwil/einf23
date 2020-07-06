@@ -31,8 +31,40 @@ void array_destroy(OArray array) {
     }
 }
 
-void array_get(OArray array, int index, void* value);
-void array_set(OArray array, int index, void* value);
+//TODO: Optimize with simplified binary search
+Bool array_get(OArray array, int index, void* value) {
+    
+    int len = array_len(array);
+    if(index >= len) return false;
+    Node node = array->start; 
+    
+    switch(array->type) {
+        case ArrayInt: {
+            for (int i = 0; i < len; i++) {
+                if (i == index) {
+                    *(int*)value = node->item.Int;
+                    break; 
+                }
+                node = node->next;
+            }
+        } break;
+
+        case ArrayFloat: {
+        } break;
+
+        case ArrayDouble: {
+        } break;
+
+        case ArrayChar: {
+        } break;
+    }
+
+    return true;
+}
+
+Bool array_set(OArray array, int index, void* value) {
+    return true;
+}
 
 int array_each(OArray array, void* value) {
     switch (array->type) {

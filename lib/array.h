@@ -46,8 +46,8 @@ typedef struct {
     void* (*origin)(OArray array);
     void (*destroy)(OArray array);
 
-    void (*get)(OArray array, int* index, void* value);
-    void (*set)(OArray array, int* index, void* value);
+    Bool (*get)(OArray array, int index, void* value);
+    Bool (*set)(OArray array, int index, void* value);
     int (*each)(OArray array, void* value);
     int (*each_with_index)(OArray array, void* value, int* index);
     int (*is_empty)(OArray array);
@@ -68,8 +68,8 @@ OArray array_init(ArrayType type);
 void* array_origin(OArray array);
 void array_destroy(OArray array);
 
-void array_get(OArray array, int index, void* value);
-void array_set(OArray array, int index, void* value);
+Bool array_get(OArray array, int index, void* value);
+Bool array_set(OArray array, int index, void* value);
 int array_each(OArray array, void* value);
 int array_each_with_index(OArray array, void* value, int* index);
 int array_is_empty(OArray array);

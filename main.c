@@ -106,7 +106,7 @@ void example3() {
 void example4() {
     
     OArray numbers = e23.Array.init(ArrayInt);
-    int item;
+    int item, index;
 
     printf("%d\n", e23.Array.len(numbers));
     print_if(e23.Array.is_empty(numbers), "Empty?", nil, nil);
@@ -114,7 +114,7 @@ void example4() {
     e23.Array.push(numbers, e23.Array.Itemize.Int(90));
     e23.Array.push(numbers, e23.Array.Itemize.Int(11));
     e23.Array.push(numbers, e23.Array.Itemize.Int(67));
-    
+
     e23.Array.unshift(numbers, e23.Array.Itemize.Int(43));
     e23.Array.unshift(numbers, e23.Array.Itemize.Int(53));
     e23.Array.unshift(numbers, e23.Array.Itemize.Int(78));
@@ -133,6 +133,11 @@ void example4() {
     print_if(e23.Array.is_empty(numbers), "Empty?", nil, nil);
 
     while(e23.Array.each(numbers, &item)) {
+        printf("%d\n", item);
+    }
+
+    while(e23.Loop.range(0, e23.Array.len(numbers), &index)){
+        e23.Array.get(numbers, index, &item);
         printf("%d\n", item);
     }
 
