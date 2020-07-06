@@ -74,7 +74,6 @@ Bool array_get(OArray array, int index, void* value) {
         for (int i = 0; i < len; i++) {
 
             if (i == index) {
-                //*(int*)value = node->item.Int;
                 array_retrieve_type_decode(node, &value, array->type);
                 break; 
             }
@@ -87,7 +86,6 @@ Bool array_get(OArray array, int index, void* value) {
         for (int i = len - 1; i >= 0; i--) {
 
             if (i == index) {
-                //*(int*)value = node->item.Int;
                 array_retrieve_type_decode(node, &value, array->type);
                 break; 
             }
