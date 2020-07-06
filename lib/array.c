@@ -45,16 +45,16 @@ void array_insert_type_decode(Node node, void* item, ArrayType type) {
     }
 }
 
-void array_retrieve_type_decode(Node node, void* item, ArrayType type) {
+void array_retrieve_type_decode(Node node, void** item, ArrayType type) {
     switch(type) {
         case ArrayInt:
-           *(int*)item = node->item.Int;
+           *(int*)(*(int**)item) = node->item.Int;
         case ArrayFloat:
-           *(float*)item = node->item.Float;
+           *(float*)(*(float**)item = node->item.Float;
         case ArrayDouble:
-           *(double*)item = node->item.Double;
+           *(double*)(*(double**)item = node->item.Double;
         case ArrayChar:
-           *(char*)item = node->item.Char;
+           *(char*)(*(char**)item = node->item.Char;
         break;
     }
 }
@@ -70,37 +70,28 @@ Bool array_get(OArray array, int index, void* value) {
     
     if (index <= middle) {
         node = array->start;
+
         for (int i = 0; i < len; i++) {
+
             if (i == index) {
-                switch(array->type) {
-                    case ArrayInt:
-                        *(int*)value = node->item.Int;
-                    break;
-
-                    case ArrayFloat:
-                        *(float*)value = node->item.Float;
-                    break;
-
-                    case ArrayDouble:
-                        *(double*)value = node->item.Double;
-                    break;
-
-                    case ArrayChar:
-                        *(char*)value = node->item.Char;
-                    break;
-                }
-
+                //*(int*)value = node->item.Int;
+                array_retrieve_type_decode(node, &value, array->type);
                 break; 
             }
+
             node = node->next;
         }
     } else {
         node = array->end;
+
         for (int i = len - 1; i >= 0; i--) {
+
             if (i == index) {
-                *(int*)value = node->item.Int;
+                //*(int*)value = node->item.Int;
+                array_retrieve_type_decode(node, &value, array->type);
                 break; 
             }
+
             node = node->previous;
         }
     }
