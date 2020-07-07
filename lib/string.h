@@ -36,7 +36,7 @@ typedef struct
 } StringClass;
 
 //Core types
-StringClass build_str ();
+StringClass str_build();
 
 OStringArray str_split(char, int* , OString);
 

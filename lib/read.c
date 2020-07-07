@@ -37,12 +37,12 @@ ReadClass read_build () {
 * character: each char of the string
 */
 
-String GetString(){
+OString GetString(){
 
     int character, n = 0, size = 1;
     //at first, it is assumed that user will type nothing
     //so, it is allocated a string of size 1
-    String temp = (String) calloc(size, sizeof(char));
+    OString temp = (OString) calloc(size, sizeof(char));
     //null-terminates the string
     *(temp + 0) = END_STRING; 
 
@@ -85,10 +85,10 @@ String GetString(){
 * character: each char of the string
 */
 
-String GetPassword(){
+OString GetPassword(){
 
 	system("stty -echo");
-	String pass = GetString();
+	OString pass = GetString();
 	system("stty echo");
 	return pass;
 

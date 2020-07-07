@@ -312,7 +312,7 @@ OString str_slice(OString str, int start, int end)
 	return slice;
 }
 
-StringClass build_str()
+StringClass str_build()
 {
 	StringClass str;
 

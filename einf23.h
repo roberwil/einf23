@@ -24,7 +24,7 @@ Class {
     ArrayClass Array;
     ReadClass Read;
     LoopClass Loop;
-    
+    StringClass String;
     void (*suicide)();
 } E23Class;
 

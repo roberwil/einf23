@@ -7,7 +7,7 @@ E23Class e23_init() {
     obj.Read = read_build();
     obj.Array = array_build();
     obj.Loop = loop_build();
-    obj.String
+    obj.String = str_build();
 
     return obj;
 }
