@@ -5,23 +5,6 @@
 int NAN;
 int TYPE;
 
-ReadClass read_build () {
-    ReadClass read;
-
-    read.string = GetString;
-    read.password = GetPassword;
-    read.integer = GetInt;
-    read.floatn = GetFloat;
-    read.doublen = GetDouble;
-    read.character = GetChar;
-    
-    read.Warning.integer = WGetInt;
-    read.Warning.floatn = WGetFloat;
-    read.Warning.doublen = WGetDouble;
-        
-    return read;
-}
-
 /*
 * @Description
 * Reads a string from the terminal
@@ -274,6 +257,23 @@ double WGetDouble (String text, String warning) {
 
 int IsNan() {
 	return NAN;
+}
+
+ReadClass read_build () {
+    ReadClass read;
+
+    read.string = GetString;
+    read.password = GetPassword;
+    read.integer = GetInt;
+    read.floatn = GetFloat;
+    read.doublen = GetDouble;
+    read.character = GetChar;
+    
+    read.Warning.integer = WGetInt;
+    read.Warning.floatn = WGetFloat;
+    read.Warning.doublen = WGetDouble;
+        
+    return read;
 }
 
 

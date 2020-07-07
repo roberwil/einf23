@@ -9,14 +9,14 @@
 #include "types.h"
 
 Class {
-    int (*integer)(String, String);
-	float (*floatn)(String, String);
-	double (*doublen)(String, String);
+    int (*integer)(OString text, OString warning);
+	float (*floatn)(OString text, OString warning);
+	double (*doublen)(OString text, OString warning);
 } ReadClassWarning;
 
 Class {
-	String (*string)();
-	String (*password)();
+	OString (*string)();
+	OString (*password)();
 	
 	int (*integer)();
 	float (*floatn)();
@@ -29,18 +29,18 @@ Class {
 
 ReadClass read_build ();
 
-String  GetString();
-String  GetPassword();
+OString  GetString();
+OString  GetPassword();
 
 int GetInt();
-int WGetInt (String text, String warning);
+int WGetInt (OString text, OString warning);
 int IsNan();
 
 float GetFloat();
-float WGetFloat (String text, String warning);
+float WGetFloat (OString text, OString warning);
 
 double GetDouble();
-double WGetDouble (String text, String warning);
+double WGetDouble (OString text, OString warning);
 
 char GetChar();
 
