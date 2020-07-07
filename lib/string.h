@@ -24,7 +24,7 @@ typedef struct
 {
 	OStringArray (*split)(char, int*, OString);
 	
-    OString (*join)(char, int  , ...);
+    OString (*join)(char join_token, int numbe , ...);
 	OString (*slice)(OString, int, int);
 	
     int (*is_digit)(OString);

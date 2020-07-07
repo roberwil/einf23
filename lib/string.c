@@ -2,8 +2,8 @@
 
 int TYPE;
 
-StrObject build_str  () {
-
+StrObject build_str()
+{
 	StrObject str;
 
 	str.split = str_split;
@@ -16,7 +16,6 @@ StrObject build_str  () {
 	str.is_of_type = str_is_of_type;
 
 	return str;
-
 }
 
 /*
@@ -30,11 +29,11 @@ StrObject build_str  () {
 * nt: the number o tokens
 */
 
+OStringArray str_split(char dlm, int *nt, OString str)
+{
 
-StringArray str_split(char dlm, int* nt, String str) {
-	
-	StringArray R;
-	int len  = (int)strlen(str);
+	OStringArray R;
+	int len = (int)strlen(str);
 	int i, k, j, r_count, tokens;
 	int n_chars, next = 0;
 
@@ -48,40 +47,41 @@ StringArray str_split(char dlm, int* nt, String str) {
 	*nt = tokens;
 
 	//allocates the StringArray
-	R = (String*) calloc(tokens, sizeof(String));
+	R = (OString *)calloc(tokens, sizeof(OString));
 
 	//tokenizes the string
-	for (i = 0; i < tokens; ++i) {
-		
+	for (i = 0; i < tokens; ++i)
+	{
+
 		//counts the number of chars of the "i" token
-		for (n_chars = 0, k = next; ; k++) {
-			//loop stops when it find the "dlm" or the end of the String
-			if (str[k] == dlm || k == len) break;
-			n_chars++; 
+		for (n_chars = 0, k = next;; k++)
+		{
+			//loop stops when it find the "dlm" or the end of the OString
+			if (str[k] == dlm || k == len)
+				break;
+			n_chars++;
 		}
 
-		//allocates memory for the "i" token. 
+		//allocates memory for the "i" token.
 		//the "+ 1" is due to '\0'
-		R[i] = (String) calloc(n_chars + 1, sizeof(char));
+		R[i] = (OString)calloc(n_chars + 1, sizeof(char));
 
 		//copies the "i" token
 		//r_count: controls the position of each char of the "i" token
 		//next: is where the "first char" of the "i" token is to be found
-		for (j = next, r_count = 0; r_count < n_chars; j++, r_count++) {
+		for (j = next, r_count = 0; r_count < n_chars; j++, r_count++)
+		{
 			R[i][r_count] = str[j];
 		}
 
-		//null-terminates the String
+		//null-terminates the OString
 		R[i][r_count] = '\0';
 		next = k + 1;
-
 	}
 
 	//return the StringArray
 	return R;
-
 }
-
 
 /*
 * @Description
@@ -94,47 +94,48 @@ StringArray str_split(char dlm, int* nt, String str) {
 * ... : the strings to be joined
 */
 
-String str_join (char dlm, int n, ...) {
+OString str_join(char dlm, int n, ...)
+{
 
 	int i, size = 0, s_size;
-	String R, temp;
+	OString R, temp;
 	char c[2];
 	va_list str; //declare variadic function list
-	
-	//copies dlm to a local String
+
+	//copies dlm to a local OString
 	c[0] = dlm;
 	c[1] = '\0';
-	
+
 	//initialize variadic function list
 	//it must be the param right before "..."
-	va_start(str, n); 	
-	
+	va_start(str, n);
+
 	//allocates space for R.. Here, no "space" at all
-	R = (String) calloc(size, sizeof(char));
+	R = (OString)calloc(size, sizeof(char));
 
 	//concatenates all string into one using "dlm"
-	for (i = 0; i < n; i++) {
+	for (i = 0; i < n; i++)
+	{
 
 		//shift an argument from the list of type "char*"
-		temp  =  va_arg(str, char*);
+		temp = va_arg(str, char *);
 		//gets its size
 		s_size = (int)strlen(temp);
 		//computes the size that R needs.. "+1" is to store "dlm"
-		size +=  s_size + 1;
+		size += s_size + 1;
 		//reallocates space for R of zise "size"
-		R = (String) realloc(R, size*sizeof(char));
-		//joins the string	
+		R = (OString)realloc(R, size * sizeof(char));
+		//joins the string
 		strcat(R, temp);
 		//joins the "dlm" unless it is the last string
-		if((i + 1) != n) strcat(R, c);
-		
+		if ((i + 1) != n)
+			strcat(R, c);
 	}
 
 	//terminate variadic function list
-	va_end(str); 
+	va_end(str);
 	//return the string containing all of the strings + dlm
 	return R;
-
 }
 
 /*
@@ -146,37 +147,38 @@ String str_join (char dlm, int n, ...) {
 * str: string to be analised
 */
 
-int str_is_digit(String str) {
-	
+int str_is_digit(OString str)
+{
+
 	int len = (int)strlen(str);
 	int i, fl = 0, start = 0;
-
 
 	if (len == 1 && str[0] == '.')
 		return FALSE;
 
-    if (len == 1 && str[0] == '-')
-        return FALSE;
-    
-    if (str[0] == '-')
-        start = 1;
-    
-	for (i = start; i < len; i++) {
-		
+	if (len == 1 && str[0] == '-')
+		return FALSE;
+
+	if (str[0] == '-')
+		start = 1;
+
+	for (i = start; i < len; i++)
+	{
+
 		//to handle floating point numbers :D
-		if (str[i] == '.') {
-			
+		if (str[i] == '.')
+		{
+
 			if (fl == 1)
 				return FALSE;
 			else
 				fl++;
 
 			continue;
-		} 
+		}
 
-		if ( !isdigit(str[i]) )
+		if (!isdigit(str[i]))
 			return FALSE;
-		
 	}
 
 	if (fl == 1)
@@ -197,18 +199,20 @@ int str_is_digit(String str) {
 * num: wheere the converted int will have its value stored
 */
 
-int str_to_int (String str, int* num) {
+int str_to_int(OString str, int *num)
+{
 
-	if (str_is_digit(str)){
+	if (str_is_digit(str))
+	{
 		*num = atoi(str);
 		return TRUE;
 	}
 
-	else {
+	else
+	{
 		*num = 0;
 		return FALSE;
 	}
-
 }
 
 /*
@@ -221,19 +225,20 @@ int str_to_int (String str, int* num) {
 * num: wheere the converted float will have its value stored
 */
 
-int str_to_float (String str, int* num) {
-	
+int str_to_float(OString str, int *num)
+{
 
-	if (str_is_digit(str)){
+	if (str_is_digit(str))
+	{
 		*num = atof(str);
 		return TRUE;
 	}
 
-	else {
+	else
+	{
 		*num = 0;
 		return FALSE;
 	}
-
 }
 
 /*
@@ -244,7 +249,8 @@ int str_to_float (String str, int* num) {
 * the "type"
 */
 
-char str_is_of_type   () {
+char str_is_of_type()
+{
 	return TYPE;
 }
 
@@ -258,13 +264,13 @@ char str_is_of_type   () {
 * substr: the substring
 */
 
-int str_include (String str, String substr) {
+int str_include(OString str, OString substr)
+{
 
-	if ( strstr(str, substr) != NULL)
+	if (strstr(str, substr) != NULL)
 		return TRUE;
 	else
 		return FALSE;
-
 }
 
 /*
@@ -281,11 +287,12 @@ int str_include (String str, String substr) {
 * end: where to stop slicing
 */
 
-String str_slice (String str, int start, int end) {
+OString str_slice(OString str, int start, int end)
+{
 
-	String slice;
-	
-	int str_len = (int)strlen (str);
+	OString slice;
+
+	int str_len = (int)strlen(str);
 	int len, i, slice_counter;
 
 	if (start < 0)
@@ -294,22 +301,22 @@ String str_slice (String str, int start, int end) {
 	if (end < 0)
 		end *= -1;
 
-	if (start > end) {
-		int temp  = start;
-			start = end;
-			end   = temp;
+	if (start > end)
+	{
+		int temp = start;
+		start = end;
+		end = temp;
 	}
 
-	if (start > str_len || end > str_len) 
+	if (start > str_len || end > str_len)
 		return nil;
 
+	len = (end - start) + 2;
+	slice = (OString)calloc(len, sizeof(char));
 
-	len   = (end - start) + 2;
-	slice = (String)calloc(len, sizeof(char));
-	
 	start--;
 	end--;
-	
+
 	for (i = start, slice_counter = 0; i <= end; i++)
 	{
 		slice[slice_counter] = str[i];
@@ -319,18 +326,4 @@ String str_slice (String str, int start, int end) {
 	slice[slice_counter] = END_STRING;
 
 	return slice;
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
