@@ -29,7 +29,7 @@ void print_if(int condition, char* title, char* yes, char* no) {
 
 //Read input
 void example1() {
-    String str;
+    OString str;
     int number;
 
     str = e23.Read.string();

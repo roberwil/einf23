@@ -114,7 +114,7 @@ int GetInt() {
 	
 	int integer;
 	
-	String temp = GetString();
+	OString temp = GetString();
 	
 	if (str_is_digit(temp)) {
 		integer = atoi(temp);
@@ -130,7 +130,7 @@ int GetInt() {
 
 }
 
-int WGetInt (String text, String warning) {
+int WGetInt (OString text, OString warning) {
     
     int temp;
     
@@ -164,7 +164,7 @@ float GetFloat() {
 	
 	float float_number;
 	
-	String temp = GetString();
+	OString temp = GetString();
 	
 	if (str_is_digit(temp)) {
 		float_number = atof(temp);
@@ -180,7 +180,7 @@ float GetFloat() {
 
 }
 
-float WGetFloat (String text, String warning) {
+float WGetFloat (OString text, OString warning) {
     
     float temp;
     
@@ -214,7 +214,7 @@ double GetDouble() {
 	
 	double float_number;
 	
-	String temp = GetString();
+	OString temp = GetString();
 	
 	if (str_is_digit(temp)) {
 		float_number = atof(temp);
@@ -229,7 +229,7 @@ double GetDouble() {
 	return float_number;
 }
 
-double WGetDouble (String text, String warning) {
+double WGetDouble (OString text, OString warning) {
     
     double temp;
     
