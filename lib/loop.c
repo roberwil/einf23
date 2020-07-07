@@ -105,7 +105,7 @@ int loop_each_double_with_index(double* array, int size, double* value, int* ind
     return loop_each_number(array, size, value, Double);
 }
 
-int loop_each_char(String array, char* value) {
+int loop_each_char(char* array, char* value) {
     static int pos = 0;
 
     *value = *(array + pos);

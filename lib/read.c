@@ -90,7 +90,7 @@ OString GetPassword(){
 
 char GetChar(){
 
-	String temp = GetString();
+	OString temp = GetString();
 	
 	if (strlen(temp) == 2 && temp[0] == '\\')
 		return *(temp + 1);	 

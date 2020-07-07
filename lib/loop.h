@@ -21,8 +21,8 @@ Class {
     int (*each_float_with_index)(float* array, int size, float* value, int* index);
     int (*each_double)(double* array, int size, double* value);
     int (*each_double_with_index)(double* array, int size, double* value, int* index);
-    int (*each_char)(String array, char* value);
-    int (*each_char_with_index)(String array, char* value, int* index);   
+    int (*each_char)(OString array, char* value);
+    int (*each_char_with_index)(OString array, char* value, int* index);   
 } LoopClass;
 
 
@@ -116,7 +116,7 @@ int loop_each_double_with_index(double* array, int size, double* value, int* ind
  * @value: holds each value of the string as long as it is being iterated
  * @return: TRUE if the array has reached its end, FALSE if not
  */ 
-int loop_each_char(String array, char* value);
+int loop_each_char(OString array, char* value);
 
 /**
  * Iterates an array of chars, which is string
@@ -125,6 +125,6 @@ int loop_each_char(String array, char* value);
  * @index: the index of each value of the array as long as it is being iterated
  * @return: TRUE if the array has reached its end, FALSE if not
  */ 
-int loop_each_char_with_index(String array, char* value, int* index);
+int loop_each_char_with_index(OString array, char* value, int* index);
 
 #endif
