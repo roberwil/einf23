@@ -33,10 +33,10 @@ typedef struct
 	int (*include)(OString str, OString substr);
 	
     char (*is_of_type)();
-} StrObject;
+} StringClass;
 
 //Core types
-StrObject build_str ();
+StringClass build_str ();
 
 OStringArray str_split(char, int* , OString);
 

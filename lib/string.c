@@ -312,9 +312,9 @@ OString str_slice(OString str, int start, int end)
 	return slice;
 }
 
-StrObject build_str()
+StringClass build_str()
 {
-	StrObject str;
+	StringClass str;
 
 	str.split = str_split;
 	str.join = str_join;
