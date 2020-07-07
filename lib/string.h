@@ -22,15 +22,15 @@
 
 typedef struct
 {
-	OStringArray (*split)(char, int*, OString);
+	OStringArray (*split)(char dlm, int* number_of_tokens, OString);
 	
-    OString (*join)(char join_token, int numbe , ...);
-	OString (*slice)(OString, int, int);
+    OString (*join)(char dlm, int number_of_string_to_join , ...);
+	OString (*slice)(OString str, int start, int end);
 	
-    int (*is_digit)(OString);
-	int (*to_int)(OString, int* );
-	int (*to_float)(OString, int* );
-	int (*include)(OString, OString);
+    int (*is_digit)(OString str);
+	int (*to_int)(OString str, int* value);
+	int (*to_float)(OString str, int* value);
+	int (*include)(OString str, OString substr);
 	
     char (*is_of_type)();
 } StrObject;

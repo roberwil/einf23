@@ -2,22 +2,6 @@
 
 int TYPE;
 
-StrObject build_str()
-{
-	StrObject str;
-
-	str.split = str_split;
-	str.join = str_join;
-	str.slice = str_slice;
-	str.is_digit = str_is_digit;
-	str.to_int = str_to_int;
-	str.to_float = str_to_float;
-	str.include = str_include;
-	str.is_of_type = str_is_of_type;
-
-	return str;
-}
-
 /*
 * @Description
 * It splits a string into tokens according to a certain char
@@ -26,10 +10,10 @@ StrObject build_str()
 * @Var
 * str: the string to be tokenized
 * dlm: the char to be used as tokenize-criterium
-* nt: the number o tokens
+* nt: the number of tokens
 */
 
-OStringArray str_split(char dlm, int *nt, OString str)
+OStringArray str_split(char dlm, int *number_of_tokens, OString str)
 {
 
 	OStringArray R;
@@ -44,7 +28,7 @@ OStringArray str_split(char dlm, int *nt, OString str)
 
 	tokens++;
 	//the number of tokens is assigned to "nt"
-	*nt = tokens;
+	*number_of_tokens = tokens;
 
 	//allocates the StringArray
 	R = (OString *)calloc(tokens, sizeof(OString));
@@ -94,7 +78,7 @@ OStringArray str_split(char dlm, int *nt, OString str)
 * ... : the strings to be joined
 */
 
-OString str_join(char dlm, int n, ...)
+OString str_join(char dlm, int number_of_string_to_join, ...)
 {
 
 	int i, size = 0, s_size;
@@ -108,13 +92,13 @@ OString str_join(char dlm, int n, ...)
 
 	//initialize variadic function list
 	//it must be the param right before "..."
-	va_start(str, n);
+	va_start(str, number_of_string_to_join);
 
 	//allocates space for R.. Here, no "space" at all
 	R = (OString)calloc(size, sizeof(char));
 
 	//concatenates all string into one using "dlm"
-	for (i = 0; i < n; i++)
+	for (i = 0; i < number_of_string_to_join; i++)
 	{
 
 		//shift an argument from the list of type "char*"
@@ -128,7 +112,7 @@ OString str_join(char dlm, int n, ...)
 		//joins the string
 		strcat(R, temp);
 		//joins the "dlm" unless it is the last string
-		if ((i + 1) != n)
+		if ((i + 1) != number_of_string_to_join)
 			strcat(R, c);
 	}
 
@@ -199,18 +183,18 @@ int str_is_digit(OString str)
 * num: wheere the converted int will have its value stored
 */
 
-int str_to_int(OString str, int *num)
+int str_to_int(OString str, int *value)
 {
 
 	if (str_is_digit(str))
 	{
-		*num = atoi(str);
+		*value = atoi(str);
 		return TRUE;
 	}
 
 	else
 	{
-		*num = 0;
+		*value = 0;
 		return FALSE;
 	}
 }
@@ -225,18 +209,18 @@ int str_to_int(OString str, int *num)
 * num: wheere the converted float will have its value stored
 */
 
-int str_to_float(OString str, int *num)
+int str_to_float(OString str, int *value)
 {
 
 	if (str_is_digit(str))
 	{
-		*num = atof(str);
+		*value = atof(str);
 		return TRUE;
 	}
 
 	else
 	{
-		*num = 0;
+		*value = 0;
 		return FALSE;
 	}
 }
@@ -326,4 +310,20 @@ OString str_slice(OString str, int start, int end)
 	slice[slice_counter] = END_STRING;
 
 	return slice;
+}
+
+StrObject build_str()
+{
+	StrObject str;
+
+	str.split = str_split;
+	str.join = str_join;
+	str.slice = str_slice;
+	str.is_digit = str_is_digit;
+	str.to_int = str_to_int;
+	str.to_float = str_to_float;
+	str.include = str_include;
+	str.is_of_type = str_is_of_type;
+
+	return str;
 }
