@@ -18,8 +18,8 @@
 #define Class       typedef struct
 #define Bool        unsigned short int
 
-typedef char*  String;
-typedef char** StringArray;
+typedef char*  OString;
+typedef char** OStringArray;
 
 
 #endif

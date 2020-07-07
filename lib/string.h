@@ -22,15 +22,15 @@
 
 typedef struct
 {
-	StringArray (*split)(char, int*, String);
+	OStringArray (*split)(char, int*, OString);
 	
-    String (*join)(char, int  , ...);
-	String (*slice)(String, int, int);
+    OString (*join)(char, int  , ...);
+	OString (*slice)(OString, int, int);
 	
-    int (*is_digit)(String);
-	int (*to_int)(String, int* );
-	int (*to_float)(String, int* );
-	int (*include)(String, String);
+    int (*is_digit)(OString);
+	int (*to_int)(OString, int* );
+	int (*to_float)(OString, int* );
+	int (*include)(OString, OString);
 	
     char (*is_of_type)();
 } StrObject;
@@ -38,15 +38,15 @@ typedef struct
 //Core types
 StrObject build_str ();
 
-StringArray str_split(char, int* , String);
+OStringArray str_split(char, int* , OString);
 
-String str_join(char, int  , ...);
-String str_slice(String, int, int);
+OString str_join(char, int  , ...);
+OString str_slice(OString, int, int);
 
-int str_is_digit(String);
-int str_to_int(String, int* );
-int str_to_float(String, int* );
-int str_include(String, String);
+int str_is_digit(OString);
+int str_to_int(OString, int* );
+int str_to_float(OString, int* );
+int str_include(OString, OString);
 
 char str_is_of_type();
 
