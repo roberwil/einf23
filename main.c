@@ -155,6 +155,10 @@ void example5() {
 
 }
 
+void example6() {
+    
+}
+
 int main(int argc, char const *argv[])
 {   
     e23 = e23_init();
