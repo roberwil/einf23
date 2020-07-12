@@ -151,6 +151,7 @@ void example4() {
 
 }
 
+// string.h
 void example5() {
 
 }
@@ -160,7 +161,7 @@ void example6() {
 }
 
 void example7(){
-    
+
 }
 
 int main(int argc, char const *argv[])
