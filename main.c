@@ -37,6 +37,8 @@ void example1() {
 
     number = e23.Read.Warning.integer("$", nil);
     printf("%d\n", number);
+
+    e23.String.destroy(str);
 }
 
 //loop.h -> Ranges

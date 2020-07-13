@@ -31,6 +31,8 @@ typedef struct
 	int (*to_int)(OString str, int* value);
 	int (*to_float)(OString str, int* value);
 	int (*include)(OString str, OString substr);
+
+	void (*destroy)(OString str);
 	
     char (*is_of_type)();
 } StringClass;
@@ -42,6 +44,8 @@ OStringArray str_split(char, int* , OString);
 
 OString str_join(char, int  , ...);
 OString str_slice(OString, int, int);
+
+void str_destroy(OString str);
 
 int str_is_digit(OString);
 int str_to_int(OString, int* );

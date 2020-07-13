@@ -312,6 +312,10 @@ OString str_slice(OString str, int start, int end)
 	return slice;
 }
 
+void str_destroy(OString str) {
+	free(str);
+}
+
 StringClass str_build()
 {
 	StringClass str;
@@ -324,6 +328,7 @@ StringClass str_build()
 	str.to_float = str_to_float;
 	str.include = str_include;
 	str.is_of_type = str_is_of_type;
+	str.destroy = str_destroy;
 
 	return str;
 }
