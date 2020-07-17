@@ -78,13 +78,17 @@ void example2() {
 //loop.h -> Each
 void example3() {
     int iarray[] = {1, 2, 3, 4, 5};
+    char carray[] = {'a', 'b', 'c', 'd', 'e'};
+
     int value, index, size = 5;
     char c;
 
-    for(;e23.Loop.each_int(iarray, size, &value);){
-        printf("%d ", value);
-    }
+    for(;e23.Loop.each_char(carray, &c);)
+        printf("%c\n", c);
 
+    for(;e23.Loop.each_int(iarray, size, &value);)
+        printf("%d ", value);
+    
     printf("\n\n");
 
     for(;e23.Loop.each_int_with_index(iarray, size, &value, &index);){
@@ -172,8 +176,8 @@ int main(int argc, char const *argv[])
 
     //example1();
     //example2();
-    //example3();
-    example4();
+    example3();
+    //example4();
     //example5();
     //example6();
     //example7();
