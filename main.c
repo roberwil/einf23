@@ -91,21 +91,20 @@ void example3() {
     
     printf("\n\n");
 
-    for(;e23.Loop.each_int_with_index(iarray, size, &value, &index);){
+    for(;e23.Loop.each_int_with_index(iarray, size, &value, &index);)
         printf("array[%d] = %d\n", index, value);
-    }    
+       
 
     printf("\n");
     
-    for(;e23.Loop.each_char("Hello, commit!", &c);){
+    for(;e23.Loop.each_char("Hello, commit!", &c);)
         printf("%c ", c);
-    }
 
     printf("\n");
 
-    for(;e23.Loop.each_char_with_index("Hello, commit!", &c, &index);){
+    for(;e23.Loop.each_char_with_index("Hello, commit!", &c, &index);)
         printf("string[%d] = %c\n", index, c);
-    }
+    
 }
 
 //array.c
