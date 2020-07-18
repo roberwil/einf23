@@ -93,7 +93,6 @@ void example3() {
 
     for(;e23.Loop.each_int_with_index(iarray, size, &value, &index);)
         printf("array[%d] = %d\n", index, value);
-       
 
     printf("\n");
     
@@ -174,7 +173,7 @@ int main(int argc, char const *argv[])
     e23 = e23_init();
 
     //example1();
-    //example2();
+    example2();
     example3();
     //example4();
     //example5();
