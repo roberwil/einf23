@@ -172,7 +172,7 @@ int main(int argc, char const *argv[])
 {   
     e23 = e23_init();
 
-    //example1();
+    example1();
     example2();
     example3();
     //example4();
