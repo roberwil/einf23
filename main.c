@@ -178,7 +178,7 @@ int main(int argc, char const *argv[])
     example4();
     example5();
     //example6();
-    //example7();
+    example7();
 
     e23.suicide();
     return 0;
