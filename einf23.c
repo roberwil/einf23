@@ -14,5 +14,4 @@ E23Class e23_init() {
 
 // Collect garbage
 void suicide() {
-
 }
