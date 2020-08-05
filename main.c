@@ -160,6 +160,7 @@ void example5() {
 
 }
 
+// file.h
 void example6() {
     
 }
