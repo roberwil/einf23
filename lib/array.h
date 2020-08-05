@@ -64,21 +64,103 @@ typedef struct {
 
 ArrayClass array_build();
 
+/**
+ * Creates an array of primitive elements
+ * @type: the array type
+ * @return the array 
+ */ 
 OArray array_init(ArrayType type);
+
+/**
+ * Creates a primitive array 
+ * @array: the array to be converted to its primitive equivalent
+ * @return the primitive array 
+ */ 
 void* array_origin(OArray array);
+
+/**
+ * Destroys the array
+ * @array: the array to destroy
+ */ 
 void array_destroy(OArray array);
 
+/**
+ * Get an item from the array at a given position 
+ * @array: the array to deal with
+ * @index: the index of the element to get
+ * @value: the place where to store the element at such index
+ * @return True if the element exists, False if not 
+ */ 
 Bool array_get(OArray array, int index, void* value);
+
+/**
+ * Set/update an item in the array at a given position  
+ * @array: the array to deal with
+ * @index: the index of the element to set
+ * @value: the element to set
+ * @return True if the index is valid, False if not 
+ */ 
 Bool array_set(OArray array, int index, void* value);
+
+/**
+ * Iterate each item in the array 
+ * @array: the array to deal with
+ * @value: the place where to store the current item
+ * @return False if the there are still items to iterate, True if not 
+ */ 
 int array_each(OArray array, void* value);
+
+/**
+ * Iterate each item in the array with respective indexes
+ * @array: the array to deal with
+ * @value: the place where to store the current item
+ * @index: the index of the current item
+ * @return False if the there are still items to iterate, True if not 
+ */
 int array_each_with_index(OArray array, void* value, int* index);
+
+/**
+ * Check if the array is empty
+ * @array: the array to deal with
+ * @return False if the array is no empty, True if yes 
+ */
 int array_is_empty(OArray array);
+
+/**
+ * Check the array size
+ * @array: the array to deal with
+ * @return the size of the array 
+ */
 int array_len(OArray array);
 
-int array_unshift(OArray array, void* item); //insert at start
-int array_push(OArray array, void* item); //insert at end
+/**
+ * Insert an item at the start of the array
+ * @array: the array to deal with
+ * @item: the item to insert
+ * @return False if the insertion was not a success, True if it was 
+ */
+int array_unshift(OArray array, void* item);
 
-int array_shift(OArray array); //remover from start
-int array_pop(OArray array); //remove from the end
+/**
+ * Insert an item at the end of the array
+ * @array: the array to deal with
+ * @item: the item to insert
+ * @return False if the insertion was not a success, True if it was 
+ */
+int array_push(OArray array, void* item);
+
+/**
+ * Remove an item from the start of the array
+ * @array: the array to deal with
+ * @return False if the deletion was not a success, True if it was 
+ */
+int array_shift(OArray array);
+
+/**
+ * Remove an item from the start of the array
+ * @array: the array to deal with
+ * @return False if the deletion was not a success, True if it was 
+ */
+int array_pop(OArray array);
 
 #endif
