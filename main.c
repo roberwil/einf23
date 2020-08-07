@@ -156,19 +156,13 @@ void example4() {
 }
 
 // string.h
-void example5() {
-
-}
+void example5() {}
 
 // file.h
-void example6() {
-    
-}
+void example6() {}
 
 // regex.h
-void example7(){
-
-}
+void example7(){}
 
 int main(int argc, char const *argv[])
 {   
