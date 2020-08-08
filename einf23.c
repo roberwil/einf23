@@ -8,7 +8,8 @@ E23Class e23_init() {
     obj.Array = array_build();
     obj.Loop = loop_build();
     obj.String = str_build();
-
+    obj.Regex = regex_build();
+    
     return obj;
 }
 

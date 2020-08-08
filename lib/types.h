@@ -14,12 +14,11 @@
 #define and         &&
 #define equals      ==
 #define ERR_NAN    "Invalid number!"
+#define EMPTY_STR  ""
 
-#define Class       typedef struct
-#define Bool        unsigned short int
-
+#define Class  typedef struct
+#define Bool   unsigned short int
 typedef char*  OString;
 typedef char** OStringArray;
-
 
 #endif

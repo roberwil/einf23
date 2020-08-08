@@ -25,6 +25,7 @@ Class {
     ReadClass Read;
     LoopClass Loop;
     StringClass String;
+    RegexClass Regex;
     void (*suicide)();
 } E23Class;
 
