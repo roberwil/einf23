@@ -14,5 +14,8 @@ OStringArray search(OString pattern) {
 
 RegexClass regex_build() {
     RegexClass rgx;
+    rgx.match = match;
+    rgx.replace = replace;
+    rgx.search = search;
     return rgx;
 }
