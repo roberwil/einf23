@@ -29,6 +29,7 @@ Class {
     void (*suicide)();
 } E23Class;
 
+//
 E23Class e23_init();
 void suicide();
 
